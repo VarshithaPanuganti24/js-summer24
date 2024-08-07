@@ -1,13 +1,13 @@
 //compare values
 //one qual sign :assignment operator
 
-// //double equal sign: convert into same type (if diff) then compare
-// console.log("7" == 7);//true
+// //double equal sign: convert into same type (if diff) then compare values
+// console.log("7" == 7);//true .string is converted to int then compared to 7 ==7 true
 // console.log(7==7);//true
-// console.log(8===7);//false
+// console.log(8==7);//false
 
 
-// //triple equal sign:compare type(if diff type, returns false) then comares
+// // //triple equal sign:compare type(if diff type, returns false) other wise compares the values 
 // console.log("7" === 7);//false
 // console.log(7===7);//true
 // console.log(8===7);//false
@@ -16,9 +16,9 @@
 // console.log(0 === false);
 // console.log (0 == false);
 
-// //compare primitives
+// //compare primitives()
 // let a = 5;
-// let b = a; //5
+// let b = a; //5(b is copiied by value)
 // let c = 5 ;
 
 // console.log("a=== c",a === c) ; //true
@@ -36,7 +36,7 @@
  const arrD = [10]; // "fdsfh17"
 
  console.log(arrA === arrB);// memory address comparing "adb457n" === "adb457n" true
- console.log(arrA === arrC); // "adb457n" === 
+ console.log(arrA === arrC); // "adb457n" === "ef..."
  console.log(arrC === arrD);
 
  arrA[0] = 100;
@@ -44,3 +44,7 @@
  console.log(arrB);//[100]
  console.log(arrC);//[10]
  console.log(arrA === arrB);// "adb457n" === "adb457n" true
+
+arrB[0] = 200;
+console.log("arrA",arrA);// 200 because both a nd b have sam2 momery reference.
+console.log("arrB",arrB); //200 so changing the b value same address A has it changes.
