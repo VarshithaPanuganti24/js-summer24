@@ -71,3 +71,49 @@ function printName(name) {
 
 
 printName("Zeta")
+
+function altPrintName(name) {
+	const firstLetter = name.charAt(0); // name[0]
+
+	if (firstLetter !== "A") {
+		console.log("name starts with something else");
+		console.log("func ends");
+		return;
+	}
+
+	console.log("name starts with letter A");
+	console.log("func ends");
+}
+
+// altPrintName("Zeta");
+
+// return a value
+function add(num) {
+	let b = [1, 2]; // '10000'
+	let c = 1;
+	return num + 5;
+}
+
+// const returnedValue = add(6);
+// console.log(add(6));
+
+// call stack
+function print(val) {
+	console.log(val);
+}
+const myLetterA = "A";
+const myLetterB = "B";
+
+console.log(myLetterA);
+print(myLetterB);
+
+print(add(5));
+
+console.log("hello" + " " + "world");
+console.log("hello".concat(" world"));
+let i = 0;
+let val = 100;
+console.log("index is: " + i + ", value is: " + val); // <----- string concatenation with "+"
+console.log(`index is: ${i}, value is: ${val} `); // <------ template string literals
+console.log("index is: ".concat(i, ", value is: ", val)); // .concat method
+console.log("hello".includes());
