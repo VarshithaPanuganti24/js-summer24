@@ -53,3 +53,21 @@ console.log(firstNames);
 // let arrA = [200];
 // modifyToFive(arrA);
 // console.log(arrA);
+
+function printName(name) {
+    const firstLetter = name.charAt(0);
+
+    if (firstLetter === "A") {
+        console.log("Name starts with letter A");
+    } else if (firstLetter === "B") {
+        console.log("Name starts with letter B");
+    } else if(firstLetter === "C") {
+        console.log("Name starts with letter C");
+    } else {
+        console.log("Name doesnot exit")
+    }
+    console.log("func ends");
+}
+
+
+printName("Zeta")
