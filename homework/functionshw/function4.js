@@ -6,7 +6,7 @@ function divisibleBy55(num){
 console.log(divisibleBy55(100)); //false
 //or
 let number1 = 110;
-let number2 = 127;
+let number2 = 55;
 
 console.log(divisibleBy55(number1)); //true
 console.log(divisibleBy55(number2)); //false
