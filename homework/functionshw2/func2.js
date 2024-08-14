@@ -4,6 +4,11 @@ function sumArray(arr) {
         sum = sum + numbers;
         
     });
+    // let i = 0;
+    // while (i < arr.length) {
+    //     sum+= arr[i];
+    //     i++;
+    // }
     // for (let i = 0; i < arr.length; i++) {
     //     sum = sum + arr[i];
     // }

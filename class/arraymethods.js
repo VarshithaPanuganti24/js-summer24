@@ -65,6 +65,7 @@ function genCelsius(fahrenheitArray) {
 //     console
 // }
 
+
 function findWithForEach(target,array) {  
 
     array.forEach(function (element,index) {
@@ -79,7 +80,102 @@ function findWithForEach(target,array) {
     //console.log(newArray);
     //console.log(arr); 
 
-    
+    // for-loop vs Array.forEach()
+// [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+function findIndex(target, array) {
+	for (let i = 0; i < array.length; i++) {
+		const element = array[i];
+		console.log(element);
+		if (element === target) {
+			return i;
+		}
+	}
+	console.log("we're still inside of the function");
+	return -1;
+}
+
+function findIndexWithBreak(target, array) {
+	let indexToReturn = -1;
+
+	for (let i = 0; i < array.length; i++) {
+		const element = array[i];
+		console.log(element);
+		if (element === target) {
+			indexToReturn = i;
+			break;
+		}
+	}
+	console.log("we're still inside of the function");
+	return indexToReturn;
+}
+
+// console.log("find: ", findIndex(5, arr)); // how many console.log? 5
+// console.log("findWithBreak: ", findIndexWithBreak(5, arr)); // how many console.log? 9
+
+function findEvensWithContinue(array) {
+	for (let i = 0; i < array.length; i++) {
+		const element = array[i];
+		// if (element % 2 === 1) {
+		// 	continue;
+		// } else {
+		// 	console.log(element);
+		// }
+
+		if (element % 2 === 0) {
+			console.log(element);
+		}
+	}
+}
+// findEvensWithContinue(arr);
+
+// terminate early with .forEach / .map ?
+function findWithForEach(target, array) {
+	// find index for the target, otherwise return -1
+	let indexToReturn = -1;
+	array.forEach((element, index) => {
+		console.log(element);
+		if (element === target) {
+			console.log("found at index: ", index);
+			indexToReturn = index;
+			return index;
+		}
+	});
+	return indexToReturn;
+}
+
+// console.log("index: ", findWithForEach(5, arr));
+
+// filter
+const duplicates = [5, 5, 6, 8, 7, 9, 6, 2, 3, 4, 5, 4, 5, 1];
+
+function filterFor(target, array) {
+	return array.filter((element) => element !== target);
+}
+// console.log(filterFor(5, duplicates));
+// console.log(duplicates);
+
+// reduce
+function sum2(array) {
+	// const cb = (prevValue, currValue) => {}
+	return array.reduce((prevValue, currValue) => {
+		return prevValue + currValue;
+	}, 0);
+}
+
+function copy2(array) {
+	return array.reduce(
+		(prev, curr) => {
+			prev[0] = prev[0] + curr;
+			return prev;
+		},
+		[0]
+	);
+}
+
+console.log(copy2(duplicates));
+console.log(duplicates);
+   
 
 
 
