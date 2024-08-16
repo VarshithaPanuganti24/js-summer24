@@ -1,8 +1,11 @@
 const student1 = {
     firstName: "Varsha",
     email:"var@gamail.com",
-    phone:"467-878-976",
-    age:25,
+    phone:{
+        home: "467-878-976",
+        office: "876-987-987",
+    },
+    age: 25,
     isActive:true,
     address:{
         mailingadd:"123 main street",
@@ -11,8 +14,39 @@ const student1 = {
     },
     enrollment:["cs101","math1a", "chem2a"],
     gradYear:null,
+    //methods
+    getName:function(){
+        return this.getName;
+    },
+    //
+    getPhone(phoneType){
+        return this.phone[phoneType];
+    },
+    addCourse:function(newcourse){
+        if(newcourse ===  '' ) return false
+        if(this.enrollment.includes(newcourse)) return false
+        return this.enrollment.push(newcourse);
+        return true 
+    },
+    removeCourse (courseToRemove){
+        const index = this.enrollment.indexOf(courseToRemove)
+        if (index > -1){
+            this.enrollment.splice(index,1)
+            return true
+            
+        }
+        return false;
+    },
+    
 };
 
+student1.getName();
+student1.getPhone([home]);
+// student1.addCourse("lang04");
+// student1.removeCourse("math1a");
+// console.log(student1);
+
+//console.log(([3]));
 // console.log(student1.email);
 // console.log(student1["email"]);
 
@@ -39,7 +73,26 @@ delete student1.gradYear;
 
 // write method to return mailing address
  student1.getmailingadds = function (){
-    console.log("this from student object", this);
+    //console.log("this from student object", this);
     return this.address.mailingadd;
  };
- console.log(student1.getmailingadds());
+ student1.address.getmailingadds = function (){
+    ////console.log("this from student object", this);
+    return this.mailingadd;
+ };
+ //
+ // console.log("address: ", student1.getMailingAddress());
+// student1.address.getMailingAddress();
+
+// try "this" with arrow function
+student1.getShippingAddress = () => {
+	//console.log("this from arrow function: ", this);
+	return this.address.shippingAddress;
+};
+
+//console.log(student1.getShippingAddress());
+
+// globalThis and arrow functions
+//Donot use "this in arrow functions ,if your code uses "this" use function declarion
+
+student1.addCourse
