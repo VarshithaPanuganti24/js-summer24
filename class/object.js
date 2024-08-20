@@ -23,7 +23,7 @@ const student1 = {
         return this.phone[phoneType];
     },
     addCourse:function(newcourse){
-        if(newcourse ===  '' ) return false
+        if(newcourse === '' ) return false
         if(this.enrollment.includes(newcourse)) return false
         return this.enrollment.push(newcourse);
         return true 
