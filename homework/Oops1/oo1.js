@@ -21,23 +21,23 @@ console.log(countWords(sentence));
 
 
 //another try
-// function countWords(sentence) {
-// 	const map = new Map();
-//     const wordCount ={};
-// 	const words = sentence.split("");
+function countWords(sentence) {
+	const map = new Map();
+   // const wordCount ={};
+	const words = sentence.split("");
 
-// 	words.forEach((word) => {
+	words.forEach((word) => {
 
-// 		if (map.has(word)) map.set(word, map.get(wordCount++) ); // increment letter count by 1
-// 		else map.set(word, 1); // set a new letter for first time, init. to 1
+		//if (map.has(word)) map.set(word, map.get(word) +1 ); // increment letter count by 1
+		//else map.set(word, 1); // set a new letter for first time, init. to 1
 
-// 		//map.set(words, (map.get(words) ) + 1);
-// 	});
+		map.set(words, (map.get(words) || 0 ) + 1);
+	});
 
-// 	return map.get(wordCount);
-// }
+	return map;
+}
 
-// //console.log(countLetter("hello world", "l"));
+//console.log(countLetter("hello world", "l"));
 
-// const sentence = "Hello World Welcome to Javascript to start";
-// console.log(countWords(sentence));
+const sentence = "Hello World Welcome to Javascript to start";
+console.log(countWords(sentence));
