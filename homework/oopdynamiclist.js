@@ -8,7 +8,11 @@ class DynamicList {
 		this.array = new Array(capacity);
 		this.size = 0;
 	}
-
+    /**
+     * 
+     * @returns 
+     * O(n)
+     */
 	print() {
 		if (this.size === 0) {
 			console.log("[]");
@@ -100,10 +104,9 @@ class DynamicList {
         const removeItem = this.array[0];
     
             // remove first existing element left by 1 then 
-            for (let i = 0; i < this.size - 1; i++) {
+            for (let i = 0; i < this.size; i++) {
                  this.array[i] = this.array[i + 1];
             }
-            this.array[this.size - 1] = undefined;
             this.size--;
             return console.log("the removed item from array",removeItem);
         }
