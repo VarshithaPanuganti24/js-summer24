@@ -178,5 +178,5 @@ class DynamicList {
 dl.peekFirst();
 dl.peekLast();
 dl.get(1);
-dl.indexOf(1000);
+dl.indexOf(2);
 dl.print();

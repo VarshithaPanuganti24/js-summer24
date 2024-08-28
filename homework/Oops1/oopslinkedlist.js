@@ -105,8 +105,9 @@ class LinkedList {
      * time complexity is :O(1)
 	 */
 	addFirst(val) {
-        const newnode = new Node(val);
-        newnode.next = this.sentinel.next;
+        // const newnode = new Node(val);
+        // newnode.next = this.sentinel.next;
+        const newnode = new Node(val,this.getHead());
         this.sentinel.next = newnode;
         this.size++;
     }
@@ -118,10 +119,10 @@ class LinkedList {
 	removeFirst() {
         if (this.size === 0) return console.log("the list is empty",null); // list is empty
         
-		const removed = this.sentinel.next;
-		this.sentinel.next = this.sentinel.next.next;
+		const removed = this.getHead();
+		this.sentinel.next = removed.next;
 		this.size--;
-		return console.log("the removed first item:",removed);
+		return console.log("the removed first item:",removed.val);
 		
 
     }
@@ -139,8 +140,7 @@ class LinkedList {
         for(let i = 0 ;i < index; i++){
             curr = curr.next ;
         }
-        const newnode = new Node(val);
-        newnode.next = curr.next;
+        const newnode = new Node(val, curr.next);
         curr.next = newnode;
         this.size++;
 
@@ -219,7 +219,7 @@ class LinkedList {
     }
 }
 
-const list = new LinkedList();
+const list = new LinkedList(1);
  list.addLast(3);
  list.addLast(5);
  list.addLast(7);
