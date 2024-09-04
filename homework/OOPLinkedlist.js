@@ -26,6 +26,7 @@ const n2 = new ListNode(2, n3);
 const head = new ListNode(1, n2);
 
 console.log(head);
+console.log(printList(head));
 const reverselist = new reverseList(head);
 console.log(reverselist);
 
