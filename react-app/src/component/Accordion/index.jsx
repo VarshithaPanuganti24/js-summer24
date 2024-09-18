@@ -56,7 +56,7 @@ class Accordion extends Component{
     handleToggle(id) {
 		this.setState((prevstate) => 
 			({data:(prevstate.data.map((tab) => 
-				tab.id === id ? {...tab, expanded: !tab.expanded } : tab ),
+				tab.id === id ?  ),
 			}));
         
     }
