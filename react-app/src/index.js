@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import Accordion from './component/Accordion';
+//import './index.css';
+//import Accordion from './component/Accordion';
 // import App from './App';
 // import reportWebVitals from './reportWebVitals';
 // import Comment from "./component/Comment"
-//import Clock from './component/Clock';
+//import Clock from './component/Clock';//
 //import Form from './component/Form';
 //import Toggle from './component/Toggle';
 //import ClockB from './component/ClockB';
@@ -13,13 +13,15 @@ import Accordion from './component/Accordion';
 //import Login from './component/Login';
 //import LoginB from './component/LoginB/indexB';
 //import Accordion from './component/Accordion';
+import SignUp from './component/SignUp';
+import SignUpB from './component/SignUpB';
 
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+ root.render(
     <div>
-        <Accordion />
+         <SignUpB />
     </div>
 );
 

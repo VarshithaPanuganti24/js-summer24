@@ -1,4 +1,5 @@
 import { Component } from "react";
+import "./Accordion.css";
 
 const data = [
 	{
@@ -27,10 +28,13 @@ const data = [
 // 2. add a toggle for expanding / contracting
 // TODO: add toggle functionality to the tab label
 
-function AccordionTab({ tab: { label, content, expanded } ,onClick}) {
+function AccordionTab({ tab: { id,label, content, expanded } ,handletoggle}) {
+	// function handleclick(){
+	// 	handleToggle(id);
+	// }
 	return (
-		<div id="tab-container">
-			<div id="tab-label" onClick={onClick}>
+		<div id="accordian-tab-container">
+			<div id="tab-label" onClick={()=> handleToggle(id)}>
 				<strong>{label}</strong>
 			</div>
 			{expanded && <div id="tab-content">{content}</div>}
@@ -40,7 +44,7 @@ function AccordionTab({ tab: { label, content, expanded } ,onClick}) {
 
 
 class Accordion extends Component{
-    coconstructor(props){
+    constructor(props){
         super(props);
         this.state = {data:null};
         this.handleToggle = this.handleToggle.bind(this)
@@ -56,13 +60,14 @@ class Accordion extends Component{
     handleToggle(id) {
 		this.setState((prevstate) => 
 			({data:(prevstate.data.map((tab) => 
-				tab.id === id ?  ),
+				tab.id === id ?  { ...tab, expanded: !tab.expanded } : tab)),
 			}));
         
     }
 
 	render() {
-		return <div id="accordion-container">{this.state.data && this.state.data.map((tab) => <AccordionTab key={tab.id} tab={tab} onClick=} />)}</div>;
+		return <div id="accordion-container">{this.state.data && this.state.data.map((tab) => 
+		<AccordionTab key={tab.id} tab={tab} handleToggle={this.handleToggle} />)}</div>;
 	}
 }
 
