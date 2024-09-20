@@ -1,4 +1,5 @@
 import { Component ,createRef } from "react";
+import "./SignUp.css";
 
 class SignUp extends Component {
 	constructor(props) {

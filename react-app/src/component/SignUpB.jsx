@@ -6,6 +6,9 @@ class SignUpB extends Component{
         this.state= {email: "",password: ""};
 
         this.pwRef = createRef();
+        //a change in ref doent cause rerendering only state and props change  cause rerendering
+        //it only holds the cause for rendering.
+        //pwref stores the cause for 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
 
@@ -45,7 +48,8 @@ class SignUpB extends Component{
 
                         <label id="Password" > 
                         Password
-                        <input id="Password"  type="password" name="password" onChange ={this.handleChange}ref={this.pwRef} />
+                        <input id="Password"  type="password" name="password" onChange ={this.handleChange}  ref={this.pwRef}/>
+                         {/* ref={this.pwRef} */}
                         </label>
                     </div>
                
@@ -60,3 +64,5 @@ class SignUpB extends Component{
 
 }
 export default SignUpB;
+//a controlled compount is ahtml statewhen an change in atrribute synchronises with the html page
+//html and react syncronous controlled
