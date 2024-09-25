@@ -1,13 +1,12 @@
 import { Component } from "react";
 import BoilingVerdictB from "./BoilingVerdictB";
-import TemperatureInput from "./TemperatureInputB";
 import TemperatureInputB from "./TemperatureInputB";
 
 function toCelsius(fahrenheit){
     return ((fahrenheit-32) * 5) /9;
 }
 function toFahrenheit(celsius){
-    return ((celsius * 9) /5 +32;
+    return ((celsius * 9) /5 + 32 );
 }
 
 function tryConvert(temperature, convert){

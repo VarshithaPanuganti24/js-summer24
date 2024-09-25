@@ -5,6 +5,7 @@ class SignUp extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { name: "", email: "", password: "" };
+		
 
         this.pwRef = createRef();
         this.handleChange = this.handleChange.bind(this);
@@ -29,30 +30,38 @@ class SignUp extends Component {
 
     }
 
-	// handleNameChange(event) {
-	// 	const nameInputValue = event.target.value;
-	// 	this.setState({
-	// 		name: nameInputValue,
-	// 	});
-	// }
-
-	// handleEmailChange(event) {
-    //     const emailInputvalue = email.target.value;
-    //     this.setState({
-    //         email: emailInputvalue,
-    //     });
-
-    // }
-
-	//handlePasswordChange(event) {}
-
-	//handleSubmit(event) {}
+	
 
 	render() {
 		console.log("state ", this.state);
         console.log("pwRef",this.pwRef);
 
         const {name,email,password} =this.state;
+		const fields =[
+			{
+			Id:"name",
+			type:"text",
+			name:"name",
+			value:this.state.name,
+			label:"Name:",	
+			},
+			{
+				Id:"email",
+				type:"email",
+				name:"email",
+				value:this.state.email,
+				label:"Email",	
+			},
+			{
+				Id:"Password",
+				type:"Password",
+				name:"Password",
+				value:this.state.password,
+				label:"Password:",	
+			},
+			
+		];
+		
 		return (
 			<form id="signup-form-container" onSubmit={this.handleSubmit}>
 				<div id="title-container">
@@ -61,7 +70,13 @@ class SignUp extends Component {
 
 				{/* name, email, password */}
 				<div id="signup-form-input-container">
-					<label id="name">
+					{fields.map(({id,text,name,value,label}) => (
+						<label key={id} id={id}>
+							{label}
+							<input onChange={this.handleChange} id={id} text={text} name={name} value={value} label={label} />
+						</label> 
+					))}
+					{/* <label id="name">	
 						Name:
 						<input id="name" type="text" name="name" onChange={this.handleChange} value={name} />
 					</label>
@@ -73,7 +88,7 @@ class SignUp extends Component {
                     <label id="password">
 						Password:
 						<input id="password" type="password" name="password"  onChange={this.handleChange} value={password} ref={this.pwRef} />
-					</label>
+					</label> */}
 
 					{/* <label id="password">
 						Password:

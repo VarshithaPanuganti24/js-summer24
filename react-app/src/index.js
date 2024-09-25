@@ -14,17 +14,18 @@ import ReactDOM from 'react-dom/client';
 //import LoginB from './component/LoginB/indexB';
 //import Accordion from './component/Accordion';
 //import SignUp from './component/SignUp';
-//import SignUpB from './component/SignUpB';
+import Counter from './component/Counter';
+import SignUpB from './component/SignUpB';
 
-//import Calculator from './component/calculator';
-import CalculatorB from
+import Calculator from './component/calculator';
+import ClockC from './component/ClockC';
 
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
  root.render(
     <div>
-         <CalculatorB />
+         <ClockC />
     </div>
 );
 

@@ -64,5 +64,5 @@ class SignUpB extends Component{
 
 }
 export default SignUpB;
-//a controlled compount is ahtml statewhen an change in atrribute synchronises with the html page
+//a controlled compount is ahtml state when an change in atrribute synchronises with the html page
 //html and react syncronous controlled
