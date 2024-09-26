@@ -19,13 +19,14 @@ import SignUpB from './component/SignUpB';
 
 import Calculator from './component/calculator';
 import ClockC from './component/ClockC';
+import ProductTable from './component/ProductTable';
 
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
  root.render(
     <div>
-         <ClockC />
+         <ProductTable />
     </div>
 );
 
