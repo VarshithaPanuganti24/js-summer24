@@ -1,34 +1,34 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-//import './index.css';
-//import Accordion from './component/Accordion';
-// import App from './App';
-// import reportWebVitals from './reportWebVitals';
-// import Comment from "./component/Comment"
-//import Clock from './component/Clock';//
-//import Form from './component/Form';
-//import Toggle from './component/Toggle';
-//import ClockB from './component/ClockB';
-//import Greeting from './component/Login/Greetings';
-//import Login from './component/Login';
-//import LoginB from './component/LoginB/indexB';
-//import Accordion from './component/Accordion';
-//import SignUp from './component/SignUp';
-import Counter from './component/Counter';
-import SignUpB from './component/SignUpB';
+import ReactDOM from "react-dom/client";
+import FilterableProductTable from "./component/FilterableProductTable";
+// import "./index.css";
 
-import Calculator from './component/calculator';
-import ClockC from './component/ClockC';
-import ProductTable from './component/ProductTable';
-
-
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
- root.render(
-    <div>
-         <ProductTable />
-    </div>
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+	<div>
+		<FilterableProductTable />
+	</div>
 );
+
+
+// import ReactDOM from "react-dom/client";
+// // import WelcomeDialog from "./components/WelcomeDialog";
+// // import SplitPane from "./components/SplitPane";
+// // import SignUp from "./components/SignUp";
+// // import Clock from "./components/Clock";
+// // import FancyBorder from "./components/WelcomeDialog/FancyBorder";
+// // import Counter from "./components/Counter";
+// // import { SignUpB } from "./components/SignUpB";
+// // import ClockC from "./components/ClockC";
+// // import ClockContainer from "./components/ClockContainer";
+// import FilterableProductTable from "./components/FilterableProductTable";
+// // import "./index.css";
+
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render(
+// 	<div>
+// 		<FilterableProductTable />
+// 	</div>
+// );
 
 // function Clock(props){
 //       const time = new Date().toLocaleTimeString();
