@@ -6,7 +6,7 @@ import { useState } from "react";
  *
  */
 export default function SearchBar() {
-  
+ 
 
 	return (
 		<div className="search-bar-container">
