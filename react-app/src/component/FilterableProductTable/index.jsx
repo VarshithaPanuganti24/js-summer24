@@ -51,25 +51,72 @@ function transformProducts(products) {
 			products: categories[category],
 		});
 	}
-	console.log(transformed);
+	//console.log(transformed);
 	return transformed;
 }
 
+//filter function : filternotworking
+//bug:
+//mutation
+//we need a filtered list of products for category without changing the orignal .create a 
+
+function filter(categories,filterText,checkInStock){
+    // for(const category of categories){
+    //   const categoryProduct = category.products
+	return categories.map((category)=>{
+		const categoryProduct = category.products
+		const filteredProducts =categoryProduct.filter(product => {
+        	const name = product.name.toLowerCase()
+        	const matchedFilteredText =name.includes(filterText)
+			return checkInStock ? matchedFilteredText && product.stocked : matchedFilteredText;
+
+	});
+      
+      category.products = filteredProducts;
+    return categories;
+  });
+}
+// function filter(categories,filterText,checkInStock){
+//     for(const category of categories){
+//       const categoryProduct = category.products
+//       const filteredProducts =categoryProduct.filter(product => {
+//         	const name = product.name.toLowerCase()
+//         	const matchedFilteredText =name.includes(filterText)
+// 			return checkInStock ? matchedFilteredText && product.stocked : matchedFilteredText;
+
+//     //     if(checkInStock){
+//     //       return matchedFilteredText && product.stocked;
+//     //     }
+//     //      return matchedFilteredText;
+//       });
+//       category.products = filteredProducts;
+//     }
+//     return categories;
+//   }
+
 export default function FilterableProductTable() {
+  const [categories,setCategories] =useState([]);
   const[search, setSearch]= useState('');
-  const [instock, setinstock]=useState(false);
+  const [inStock, setInStock]=useState(false);
   
+  useEffect(()=> {
+    const transformed =transformProducts(products)
+    setCategories(transformed)
+
+  },[])
 
   const handleSearchChange=(event) =>{
-    const newoutputsearch= event.target.value;
-    setSearch(newoutputsearch);
+    setSearch(event.target.value);
     
+  };
+  const handleCheckInStockChange =(event)=>{
 
-  }
-  const HandleinstockChange =(event)=>{
-    setinstock(event.target.value);
+    setInStock(event.target.checked);
 
-  }
+  };
+  console.log(filter(categories, search, inStock));
+
+ 
 
 
 	// TODO: setup state to maintain products list, default list should be empty or null
@@ -78,14 +125,9 @@ export default function FilterableProductTable() {
 
 	return (
 		<div className="filterable-product-table">
-			<SearchBar
-      search={search}
-      instock={instock}
-      handleSearchChange={handleSearchChange}
-      HandleinstockChange={HandleinstockChange} />
-			<ProductTable filteredProducts={productsTransformed}
-      search={search}
-      instock={instock} />
+			<SearchBar search={search} inStock={inStock} handleSearchChange={handleSearchChange} handleCheckInStockChange={handleCheckInStockChange} />
+
+			<ProductTable filteredProducts={productsTransformed} search={search} inStock={inStock} />
 		</div>
 	);
 }
