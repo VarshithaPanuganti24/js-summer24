@@ -1,7 +1,7 @@
 import "./FilterableProductTable.css";
 import ProductTable from "./ProductTable";
 import SearchBar from "./SearchBar";
-import { useEffect,useState } from "react";
+import { useEffect,useState,useMemo } from "react";
 
 const products = [
 	{ category: "Sporting Goods", price: "$49.99", stocked: true, name: "Football" },
@@ -60,64 +60,54 @@ function transformProducts(products) {
 //mutation
 //we need a filtered list of products for category without changing the orignal .create a 
 
-function filter(categories,filterText,checkInStock){
-    // for(const category of categories){
-    //   const categoryProduct = category.products
-	return categories.map((category)=>{
-		const categoryProduct = category.products
-		const filteredProducts =categoryProduct.filter(product => {
-        	const name = product.name.toLowerCase()
-        	const matchedFilteredText =name.includes(filterText)
-			return checkInStock ? matchedFilteredText && product.stocked : matchedFilteredText;
+function filter(categories,filterText,checkInStock) {
+    
+		console.log("filter is running");
+		if(filterText === "" && !checkInStock) return categories;
 
-	});
-      
-      category.products = filteredProducts;
-    return categories;
-  });
+		filterText =filterText.toLowerCase();
+
+		return categories?.map((category) => {
+				return {
+					...category,
+					products: category.products.filter((product) => {
+				//const name = product.name.toLowerCase()
+						const matchedFilteredText = product.name.toLowerCase().includes(filterText);
+						return checkInStock ? matchedFilteredText && product.stocked : matchedFilteredText;
+					}),	
+				};
+		});
 }
-// function filter(categories,filterText,checkInStock){
-//     for(const category of categories){
-//       const categoryProduct = category.products
-//       const filteredProducts =categoryProduct.filter(product => {
-//         	const name = product.name.toLowerCase()
-//         	const matchedFilteredText =name.includes(filterText)
-// 			return checkInStock ? matchedFilteredText && product.stocked : matchedFilteredText;
+	
 
-//     //     if(checkInStock){
-//     //       return matchedFilteredText && product.stocked;
-//     //     }
-//     //      return matchedFilteredText;
-//       });
-//       category.products = filteredProducts;
-//     }
-//     return categories;
-//   }
 
 export default function FilterableProductTable() {
-  const [categories,setCategories] =useState([]);
-  const[search, setSearch]= useState('');
-  const [inStock, setInStock]=useState(false);
+  		const [categories,setCategories] =useState([]);
+  		const[search, setSearch]= useState('');
+  		const [inStock, setInStock]=useState(false);
   
-  useEffect(()=> {
-    const transformed =transformProducts(products)
-    setCategories(transformed)
+  		useEffect(()=> {
+    		const transformed =transformProducts(products);
+   			 	setCategories(transformed);
 
-  },[])
+  		},[]);
 
-  const handleSearchChange=(event) =>{
-    setSearch(event.target.value);
+  		const handleSearchChange= (event) =>{
+    		setSearch(event.target.value);
     
-  };
-  const handleCheckInStockChange =(event)=>{
+  		};
+  		const handleCheckInStockChange =(event)=>{
 
-    setInStock(event.target.checked);
+    		setInStock(event.target.checked);
+		};
 
-  };
-  console.log(filter(categories, search, inStock));
-
+ 		// const filteredCategories = filter(categories, search, inStock);
+		// delayed search ,unrealatedstate?
+		  const filteredCategories = useMemo(() => {
+			return filter(categories, search, inStock);
+		}, [categories, search, inStock]);
  
-
+	//if we have 2 states which is one is derived state so we need  not set state as usestate instead produced it and use it
 
 	// TODO: setup state to maintain products list, default list should be empty or null
 	// transform original product list and set it as state in useEffect hook
@@ -125,13 +115,14 @@ export default function FilterableProductTable() {
 
 	return (
 		<div className="filterable-product-table">
-			<SearchBar search={search} inStock={inStock} handleSearchChange={handleSearchChange} handleCheckInStockChange={handleCheckInStockChange} />
+				<SearchBar search={search} inStock={inStock} handleSearchChange={handleSearchChange} handleCheckInStockChange={handleCheckInStockChange} />
 
-			<ProductTable filteredProducts={productsTransformed} search={search} inStock={inStock} />
+				<ProductTable filteredProducts= {filteredCategories} />
 		</div>
 	);
 }
 
+// we use useMemo we dont want to render the filter component whichis already a right value if we dont need to rerender when any otherstate changes or props changes.
 
 
 
