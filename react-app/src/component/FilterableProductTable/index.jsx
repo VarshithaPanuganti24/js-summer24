@@ -2,6 +2,8 @@ import "./FilterableProductTable.css";
 import ProductTable from "./ProductTable";
 import SearchBar from "./SearchBar";
 import { useEffect,useState,useMemo } from "react";
+import useDebounce from "../../hooks/useDebounce";
+
 
 const products = [
 	{ category: "Sporting Goods", price: "$49.99", stocked: true, name: "Football" },
@@ -82,9 +84,12 @@ function filter(categories,filterText,checkInStock) {
 
 
 export default function FilterableProductTable() {
+	//always use hooks at top level before any early return
   		const [categories,setCategories] =useState([]);
   		const[search, setSearch]= useState('');
   		const [inStock, setInStock]=useState(false);
+
+		const delayedSearch =useDebounce(search,2000);
   
   		useEffect(()=> {
     		const transformed =transformProducts(products);
@@ -104,8 +109,8 @@ export default function FilterableProductTable() {
  		// const filteredCategories = filter(categories, search, inStock);
 		// delayed search ,unrealatedstate?
 		  const filteredCategories = useMemo(() => {
-			return filter(categories, search, inStock);
-		}, [categories, search, inStock]);
+			return filter(categories, delayedSearch, inStock);
+		}, [categories, delayedSearch, inStock]);
  
 	//if we have 2 states which is one is derived state so we need  not set state as usestate instead produced it and use it
 
