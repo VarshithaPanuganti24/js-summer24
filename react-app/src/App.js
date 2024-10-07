@@ -5,6 +5,7 @@ import React from "react";
 import PublicRoutes from "./component/Layout/PublicRoutes";
 import Unauthorized from "./pages/Unauthorised";
 import Login from "./pages/public/auth/Login";
+import Register from "./pages/public/auth/Register";
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
       <Route path="/" element={<PublicRoutes />}>
         <Route index element={<Home />} />
         <Route path="login" element={<Login />} />
-        {/* <Route path="register" element={<Register />} /> */}
+        <Route path="register" element={<Register />} /> 
         <Route path="unauthorized" element={<Unauthorized />} />
       </Route>
 
