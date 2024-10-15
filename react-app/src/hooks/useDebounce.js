@@ -6,11 +6,11 @@ import { useEffect, useState } from "react";
  * @param {*} delay in milliseconds
  */
 export default function useDebounce(value, delay) {
-	const [debouncedValue, setDebouncedValue] = useState(value);
+	const [debouncedValue, setDebouncedValue] = useState(value);  // "b" -> "ball"
 
 	useEffect(() => {
 		const timerId = setTimeout(() => {
-			setDebouncedValue(value);
+			setDebouncedValue(value);    // queue: "b" -> "ba" -> "bal" -> "ball"
 		}, delay);
 
 		return () => {

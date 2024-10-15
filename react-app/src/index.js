@@ -12,11 +12,15 @@ import { BrowserRouter } from "react-router-dom";
 //import FilterableProductTable from "./components/FilterableProductTable";
 import "./index.css";
 import App from "./App";
+import AuthProvider from "./contexts/AuthProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<BrowserRouter>
-		<App />
+		<AuthProvider>
+			<App />
+		</AuthProvider>
+		
 	</BrowserRouter>
 );
 

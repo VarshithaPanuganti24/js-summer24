@@ -23,7 +23,11 @@ function formatPhoneNumber(value) {
 }
 
 const schema = yup.object({
-	email: yup.string().max(50, "Max character is 50.").email().required("Email is required."),
+	email: yup.string().max(50, "Max character is 50.").email().test({
+		name: "Email min length",
+		test: (email) => email.length > 10,
+		message: "Email must be longer than 10 characters.",
+	}).required("Email is required."),
 	password: yup.string().min(8, "Must be at least 8 characters.").required(),
 	phone: yup.string().matches(phoneRegex, "Phone must be in the format (XXX) XXX-XXXX").required(),
 	terms: yup.boolean().required().oneOf([true], "Please accept the Terms and Conditions."),
@@ -65,9 +69,9 @@ const RegisterForm = () => {
 
 	};
 	const handlePhoneChange =(e) => {
-	const phoneNumber = e.target.value;
-	setValue("phone", formatPhoneNumber(phoneNumber));
-	trigger("phone",{shouldFocus:true});
+		const phoneNumber = e.target.value;
+		setValue("phone", formatPhoneNumber(phoneNumber));
+		trigger("phone",{shouldFocus:true});
 
 	};
 

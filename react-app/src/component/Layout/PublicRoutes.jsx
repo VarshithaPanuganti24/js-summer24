@@ -3,10 +3,10 @@ import Layout from ".";
 import { Outlet } from "react-router-dom";
 
 const PublicRoutes = () => {
-  return (
-    <Layout>
-      <Outlet />
-    </Layout>
+     return (
+       <Layout>
+          <Outlet />
+       </Layout>
   );
 };
 
