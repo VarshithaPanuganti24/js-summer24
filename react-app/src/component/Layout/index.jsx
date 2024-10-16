@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
   const isAuthenticated = user && user.id > 0 && user.accessToken;
   return (
     <div>
-      {isAuthenticated ? PrivateNavbar : <Navbar />}
+      {isAuthenticated ?< PrivateNavbar /> : <Navbar />}
       {children}
     </div>
   );

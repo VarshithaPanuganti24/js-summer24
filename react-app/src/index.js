@@ -24,7 +24,9 @@ root.render(
 	</BrowserRouter>
 );
 
+//we only use auth provider for app as a wrapper because we use values from auth to app not from auth to browser to app as browser router has its own logic as valuses from auth is not required
 
+//
 // import ReactDOM from "react-dom/client";
 // // import WelcomeDialog from "./components/WelcomeDialog";
 // // import SplitPane from "./components/SplitPane";

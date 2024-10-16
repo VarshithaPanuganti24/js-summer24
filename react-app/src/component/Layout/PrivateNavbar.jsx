@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import Button from "../Button";
 import logo from "./../../assets/logos/logo.svg";
-
+import AuthCannotAccess from "./AuthCannotAccess";
 
 
 const PrivateNavbar = () => {
-	const { logout } = useAuth();
+	const {  logout } = useAuth();
 
 	return (
 		<nav className="flex justify-between items-center py-4 px-2 bg-white border-b-2 border-indigo-500">
@@ -30,6 +30,12 @@ const PrivateNavbar = () => {
 				<li>
 					<Link to="/comments">Comments</Link>
 				</li>
+				<li>
+					<Link to="/login">Login</Link>
+				</li>
+				<li>
+					<Link to="/register">Register</Link>
+				</li>
 			</ul>
 
 			<div className="flex gap-3">
@@ -40,3 +46,4 @@ const PrivateNavbar = () => {
 };
 
 export default PrivateNavbar;
+

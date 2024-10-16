@@ -10,7 +10,7 @@ const Home = () => {
 
 		try {
 			console.log("calling fetch");
-			const response = await fetch("https://jsonplaceholder.typicode.com/users/1")
+			const response = await fetch("https://jsonplaceholder.typicode.com/users/1");
 			console.log("after response");
 			const user = await response.json();
 			console.log("user",user);

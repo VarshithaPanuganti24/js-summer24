@@ -11,6 +11,7 @@ import PrivateRoutes from "./component/Layout/PrivateRoutes";
 import Dashboard from "./pages/private/Dashboard";
 import Admin from "./pages/private/Dashboard";
 import SuperAdmin from "./pages/private/SuperAdmin";
+//import AuthCannotAccess from "./component/Layout/AuthCannotAccess";
 
 function App() {
    return (
@@ -27,7 +28,7 @@ function App() {
          {/* Private Routes */}
          <Route element={<PrivateRoutes />}>
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/adminn" element={<Admin />} />
+            <Route path="/admin" element={<Admin />} />
             <Route path="/super-admin" element={<SuperAdmin />} />
 
          </Route>
@@ -37,3 +38,5 @@ function App() {
 }
 
 export default App;
+
+//write a wrapper that allows the l
