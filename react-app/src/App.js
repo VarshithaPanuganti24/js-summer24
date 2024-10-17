@@ -11,7 +11,7 @@ import PrivateRoutes from "./component/Layout/PrivateRoutes";
 import Dashboard from "./pages/private/Dashboard";
 import Admin from "./pages/private/Dashboard";
 import SuperAdmin from "./pages/private/SuperAdmin";
-//import AuthCannotAccess from "./component/Layout/AuthCannotAccess";
+import AuthCannotAccess from "./component/Layout/AuthCannotAccess";
 
 function App() {
    return (
@@ -20,8 +20,8 @@ function App() {
          <Route path="/" element={<PublicRoutes />}>
 
             <Route index element={<Home />} />
-            <Route path="login" element={<Login />} />
-            <Route path="register" element={<Register />} />
+            <Route path="login" element={<AuthCannotAccess><Login /></AuthCannotAccess>} />
+            <Route path="register" element={<AuthCannotAccess><Register /></AuthCannotAccess>} />
             <Route path="unauthorized" element={<Unauthorized />} />
          </Route>
 
