@@ -9,7 +9,7 @@ import Register from "./pages/public/auth/Register";
 //import LoginFormB from "./pages/public/auth/Login/LoginFormB";
 import PrivateRoutes from "./component/Layout/PrivateRoutes";
 import Dashboard from "./pages/private/Dashboard";
-import Admin from "./pages/private/Dashboard";
+import Admin from "./pages/private/Admin";
 import SuperAdmin from "./pages/private/SuperAdmin";
 import AuthCannotAccess from "./component/Layout/AuthCannotAccess";
 
