@@ -30,6 +30,7 @@ const AccessControl = (props) => {
 };
 
 export default AccessControl;
+///
 
 //whether children is page or component
 
