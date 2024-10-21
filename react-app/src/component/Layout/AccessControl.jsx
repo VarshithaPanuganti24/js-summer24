@@ -29,6 +29,13 @@ const AccessControl = (props) => {
     return children;
 };
 
+// const default ={
+//     requiredRoles:["admin" ,"superadmin"],
+//     role:"guest"
+// };
+
+AccessControl.def
+
 export default AccessControl;
 ///
 
@@ -42,3 +49,10 @@ export default AccessControl;
 
 //a react component and a javascript function
 //a component returing a jsx a there is a 
+
+//children is a component that being wrapped around , we dont pass the children  explicityly
+//children is a component that being wrapeed around  ,we dont pass the children explicityly
+//children is a component that being  wrapped around ,we dont pass the children explicityly
+//children is a component being wrapped around ,we dont pass the the children explicityly
+//children is  a component being  wrapped around we dont pass the children it explicityly
+

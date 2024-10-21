@@ -28,6 +28,10 @@ const AuthCannotAccess = (props ) => {
 
 export default AuthCannotAccess;
 
+<AuthCannotAccess>
+    < Child />
+</AuthCannotAccess>
+//
 //when login we need to redirect link the /logic to AuthCannotAccess
 //where the Auth login checks if user is login in or not if not logged in login abd register
 //get the user object without destructuring

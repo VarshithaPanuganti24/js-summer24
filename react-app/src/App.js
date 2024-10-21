@@ -14,6 +14,8 @@ import SuperAdmin from "./pages/private/SuperAdmin";
 import AuthCannotAccess from "./component/Layout/AuthCannotAccess";
 import AccessControl from "./component/Layout/AccessControl";
 
+
+const requiredRoles =["admin", "superAdmin"]
 function App() {
    return (
       <Routes>
@@ -29,15 +31,33 @@ function App() {
          {/* Private Routes */}
          <Route element={<PrivateRoutes />}>
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/admin" element={<Admin />} />
-            <Route path="/super-admin" element={<SuperAdmin />} />
+            <Route
+          path="/admin"
+          element={<AccessControl requiredRoles={requiredRoles} ,role = "guest" >{<Admin />}</AccessControl>}
+        />
+        <Route
+          path="/super-admin"
+          element={<AccessControl>{<SuperAdmin />}</AccessControl>}
+        />
+      </Route>
 
-         </Route>
 
       </Routes>
    );
 }
 
 export default App;
+{/* <Parent>
+   <Child />
+</Parent> */}
 
+function parent ({children})
+
+//aceess control has to wrapped on button to test
+// 
+//console.log the child from parent component
+// from the parent component how do you get access to the child component
+// by passing the child component as children (props) to parent component
 //write a wrapper that allows the l
+
+//i have a parent and children component i need to pass the child component as a chldren to the parent componnent
