@@ -12,6 +12,7 @@ import Dashboard from "./pages/private/Dashboard";
 import Admin from "./pages/private/Admin";
 import SuperAdmin from "./pages/private/SuperAdmin";
 import AuthCannotAccess from "./component/Layout/AuthCannotAccess";
+import AccessControl from "./component/Layout/AccessControl";
 
 function App() {
    return (

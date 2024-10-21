@@ -7,19 +7,19 @@ import useAuth from "../../hooks/useAuth";
 
 
 const AuthCannotAccess = (props ) => {
-    //const children = props.children;
-    const {children} = props;
+    const children = props.children;
+    //const {children} = props;
     console.log(props);
 
      const  { user } = useAuth();
-     const  isAuthenticated = user || user?.id.accessToken;
+     const  isAuthenticated = user || user?.id > 0 || user?.accessToken;
 
     //  const contextValue = useAuth();
     //  const user = contextValue.user;
     //  const {user}= contextValue;
 
      
-    if (isAuthenticated) return <Navigate to ="/dashboard" replace />
+    if (isAuthenticated) return <Navigate to ="/dashboard" replace />;
     
     return children ;
 
