@@ -1,16 +1,11 @@
-import React, { useContext } from "react";
-
-
-//import { AuthContext } from "../../contexts/AuthProvider";
 import { Navigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 
 const AuthCannotAccess = (props ) => {
-    const children = props.children;
-    //const {children} = props;
-    console.log(props);
-
+    //const children = props.children;
+    //console.log(props);
+     const {children} = props;
      const  { user } = useAuth();
      const  isAuthenticated = user || user?.id > 0 || user?.accessToken;
 
@@ -28,9 +23,9 @@ const AuthCannotAccess = (props ) => {
 
 export default AuthCannotAccess;
 
-<AuthCannotAccess>
+{/* <AuthCannotAccess>
     < Child />
-</AuthCannotAccess>
+</AuthCannotAccess> */}
 //
 //when login we need to redirect link the /logic to AuthCannotAccess
 //where the Auth login checks if user is login in or not if not logged in login abd register

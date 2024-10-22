@@ -3,24 +3,21 @@ import Layout from ".";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
-
 const PrivateRoutes = () => {
-    const location =useLocation();
-    const {user} = useAuth();
+  const location = useLocation();
+  const { user } = useAuth();
 
-    console.log("user in private routes", user);
+  //console.log("user in private routes", user);
 
-    const isAuthenticated = user && user.id > 0 && user.accessToken;
+  const isAuthenticated = user && user.id > 0 && user.accessToken;
 
-    return isAuthenticated ? (
-            <Layout>
-                <Outlet />
-            </Layout>
-
-    ) : (
-             <Navigate to="/login" state={{from:location}} replace />
-    );
-
+  return isAuthenticated ? (
+    <Layout>
+      <Outlet />
+    </Layout>
+  ) : (
+    <Navigate to="/login" state={{ from: location }} replace />
+  );
 };
 
 export default PrivateRoutes;
@@ -41,4 +38,3 @@ export default PrivateRoutes;
 // password -> hash -> asdfghjkl
 // correct: password123 -> hashed -> qwertyuiop === qwertyuiop (DB)
 // server issues back to client -> JWT (json web token)
-

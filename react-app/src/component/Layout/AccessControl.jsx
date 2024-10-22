@@ -29,14 +29,15 @@ const AccessControl = (props) => {
     return children;
 };
 
+export default AccessControl;
+
 // const default ={
 //     requiredRoles:["admin" ,"superadmin"],
 //     role:"guest"
 // };
 
-AccessControl.def
 
-export default AccessControl;
+
 ///
 
 //whether children is page or component
@@ -55,4 +56,7 @@ export default AccessControl;
 //children is a component that being  wrapped around ,we dont pass the children explicityly
 //children is a component being wrapped around ,we dont pass the the children explicityly
 //children is  a component being  wrapped around we dont pass the children it explicityly
+//children is a component that being  wrapped around ,we dont pass the children explicityly
+//children is a component that being wrapped around ,we dont pass the the children explicityly
+//children is a component being  wrapped around we dont pass the children it explicityly
 

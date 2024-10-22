@@ -12,10 +12,13 @@ import Dashboard from "./pages/private/Dashboard";
 import Admin from "./pages/private/Admin";
 import SuperAdmin from "./pages/private/SuperAdmin";
 import AuthCannotAccess from "./component/Layout/AuthCannotAccess";
-import AccessControl from "./component/Layout/AccessControl";
+//import AccessControl from "./component/Layout/AccessControl";
 
 
-const requiredRoles =["admin", "superAdmin"]
+const role = ["student", "teacher", "admin", "super-admin"];
+const requiredRoles = ["admin", "super-admin"];
+const superAdminRole = ["super-admin"];
+
 function App() {
    return (
       <Routes>
@@ -33,13 +36,29 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route
           path="/admin"
-          element={<AccessControl requiredRoles={requiredRoles} ,role = "guest" >{<Admin />}</AccessControl>}
+          element={
+            <AccessControl
+              requiredRoles={requiredRoles}
+              role={role}
+              type="page"
+            >
+              <Admin />
+            </AccessControl>
+          }
         />
         <Route
           path="/super-admin"
-          element={<AccessControl>{<SuperAdmin />}</AccessControl>}
+          element={
+            <AccessControl
+              requiredRoles={requiredRoles}
+              role={superAdminRole}
+              type="page"
+            >
+              <SuperAdmin />
+            </AccessControl>
+          }
         />
-      </Route>
+         </Route>
 
 
       </Routes>
@@ -47,11 +66,11 @@ function App() {
 }
 
 export default App;
-{/* <Parent>
-   <Child />
-</Parent> */}
+// {/* <Parent>
+//    <Child />
+// </Parent> */}
 
-function parent ({children})
+// function parent ({children})
 
 //aceess control has to wrapped on button to test
 // 
