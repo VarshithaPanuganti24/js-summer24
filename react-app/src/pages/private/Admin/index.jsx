@@ -4,7 +4,7 @@ import AccessControl from "../../../component/Layout/AccessControl";
 
 
 const requiredRoles = ["admin","super-admin"];
-const role = ["admin", "super-admin"];
+const role = "admin";
 //const role = "admin";
 const Admin = () => {
 

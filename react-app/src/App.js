@@ -12,12 +12,12 @@ import Dashboard from "./pages/private/Dashboard";
 import Admin from "./pages/private/Admin";
 import SuperAdmin from "./pages/private/SuperAdmin";
 import AuthCannotAccess from "./component/Layout/AuthCannotAccess";
-//import AccessControl from "./component/Layout/AccessControl";
+import AccessControl from "./component/Layout/AccessControl";
 
 
-const role = ["student", "teacher", "admin", "super-admin"];
-const requiredRoles = ["admin", "super-admin"];
-const superAdminRole = ["super-admin"];
+//const role =  "admin" ;
+//const requiredRoles = ["admin", "super-admin"];
+//const superAdminRole = "super-admin";
 
 function App() {
    return (
@@ -38,8 +38,8 @@ function App() {
           path="/admin"
           element={
             <AccessControl
-              requiredRoles={requiredRoles}
-              role={role}
+              requiredRoles={["admin", "super-admin"]}
+              role={"admin"}
               type="page"
             >
               <Admin />
@@ -50,8 +50,8 @@ function App() {
           path="/super-admin"
           element={
             <AccessControl
-              requiredRoles={requiredRoles}
-              role={superAdminRole}
+              requiredRoles={["super-admin"]}
+              role={"super-admin"}
               type="page"
             >
               <SuperAdmin />

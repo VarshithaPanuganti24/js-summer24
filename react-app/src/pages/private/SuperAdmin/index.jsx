@@ -1,7 +1,7 @@
 import React from "react";
 import AccessControl from "../../../component/Layout/AccessControl";
 
-const requiredRoles =  ["admin","super-admin"];
+const requiredRoles =  ["super-admin"];
 const role = "super-admin";
 
 const SuperAdmin = () => {

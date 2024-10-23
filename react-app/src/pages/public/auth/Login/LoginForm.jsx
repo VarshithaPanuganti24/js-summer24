@@ -39,11 +39,11 @@ const LoginForm = () => {
     setErrMsg("");
   }, [email, pwd]);
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
+  const handleLogin = async (e) => { //why async
+    e.preventDefault(); // purpose of this
     setLoginErr(null);
     //setErrMsg("");
-    setIsLoading(true);
+    setIsLoading(true); //
 
     // perform final validation
     const t1 = EMAIL_REGEX.test(email) && email.length <= 50;
@@ -52,8 +52,9 @@ const LoginForm = () => {
     if (!t1 || !t2) {
       setErrMsg("Invalid Inputs");
       setIsLoading(false);
-      return;
+      return; //we end the hamdle loginfunction
     }
+    console.log("checking ");
     login(from);
 
     // try {

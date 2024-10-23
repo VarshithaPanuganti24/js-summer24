@@ -93,11 +93,11 @@ const Home = () => {
 	return (
 			<div>
 				<h1>Welcome back,{user?.name}</h1>
-				<AccessControl requiredRoles={requiredRoles} role={adminRole} type="page" >
+				<AccessControl requiredRoles={["admin", "super-admin"]} role={"admin"} type="component" >
 					<Button color="primary"> Admin </Button>
 				</AccessControl>
 
-				<AccessControl requiredRoles={requiredRoles} role={superAdminRole} type="page">
+				<AccessControl requiredRoles={["super-admin"]} role={"super-admin"} type="component">
 					<Button color="primary">Super Admin </Button>
 				</AccessControl>
 				

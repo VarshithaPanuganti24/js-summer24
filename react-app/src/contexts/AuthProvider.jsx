@@ -56,3 +56,5 @@ const AuthProvider = ({ children }) => {
 export default AuthProvider;
 
 
+// What happens when user clicks on login  and what useeffect does the role in and the authentication 
+// authentication compoenent has many components
