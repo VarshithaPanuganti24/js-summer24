@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import Button from "../Button";
 import logo from "./../../assets/logos/logo.svg";
-import AuthCannotAccess from "./AuthCannotAccess";
+
 
 
 const PrivateNavbar = () => {

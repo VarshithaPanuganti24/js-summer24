@@ -15,33 +15,30 @@ import AuthCannotAccess from "./component/Layout/AuthCannotAccess";
 import AccessControl from "./component/Layout/AccessControl";
 
 
-//const role =  "admin" ;
-//const requiredRoles = ["admin", "super-admin"];
-//const superAdminRole = "super-admin";
-
 function App() {
-   return (
-      <Routes>
-         {/* Public Routes */}
-         <Route path="/" element={<PublicRoutes />}>
+  return (
+    <Routes>
+      {/* Public Routes */}
+      <Route path="/" element={<PublicRoutes />}>
 
-            <Route index element={<Home />} />
-            <Route path="login" element={<AuthCannotAccess><Login /></AuthCannotAccess>} />
-            <Route path="register" element={<AuthCannotAccess><Register /></AuthCannotAccess>} />
-            <Route path="unauthorized" element={<Unauthorized />} />
-         </Route>
+        <Route index element={<Home />} />
+        <Route path="login" element={<AuthCannotAccess><Login /></AuthCannotAccess>} />
+        <Route path="register" element={<AuthCannotAccess><Register /></AuthCannotAccess>} />
+        <Route path="unauthorized" element={<Unauthorized />} />
+      </Route>
 
-         {/* Private Routes */}
-         <Route element={<PrivateRoutes />}>
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route
+      {/* Private Routes */}
+      <Route element={<PrivateRoutes />}>
+        <Route path="/dashboard" element={<Dashboard />} />
+
+
+        <Route
           path="/admin"
           element={
             <AccessControl
-              requiredRoles={["admin", "super-admin"]}
               role={"admin"}
-              type="page"
-            >
+              requiredRoles={["admin", "super-admin"]}
+              isPage = {true} >
               <Admin />
             </AccessControl>
           }
@@ -50,19 +47,17 @@ function App() {
           path="/super-admin"
           element={
             <AccessControl
-              requiredRoles={["super-admin"]}
               role={"super-admin"}
-              type="page"
-            >
+              requiredRoles={["super-admin"]}
+              isPage >   
+              {/* // we can specify ispage ={true} ispage as both are same  */}
               <SuperAdmin />
             </AccessControl>
           }
         />
-         </Route>
-
-
-      </Routes>
-   );
+      </Route>
+    </Routes>
+  );
 }
 
 export default App;

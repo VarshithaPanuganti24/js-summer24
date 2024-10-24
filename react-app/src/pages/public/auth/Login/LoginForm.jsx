@@ -2,10 +2,9 @@ import React, { useRef, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Button from "../../../../component/Button";
 import useAuth from "../../../../hooks/useAuth";
-import useFakeLogin from "../../../../hooks/useFakeLogin";
+//import useFakeLogin from "../../../../hooks/useFakeLogin";
 
-const EMAIL_REGEX =
-  /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+const EMAIL_REGEX = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
 
 const LoginForm = () => {
   const emailRef = useRef();
@@ -56,7 +55,7 @@ const LoginForm = () => {
     }
     console.log("checking ");
     login(from);
-
+  };
     // try {
     //   // const user = await fakeLogin();
     //   // setUser(user);
@@ -67,7 +66,7 @@ const LoginForm = () => {
     //   setErrMsg("The server could not be reached. Please try again later.");
     //   setIsLoading(false);
     // }
-  };
+  
   if (isLoading) return <div>Logging in...</div>;
 
   //console.log(emailRef);

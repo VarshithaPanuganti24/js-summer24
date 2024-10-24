@@ -1,44 +1,37 @@
 import React from "react";
-import Unauthorized from "../../pages/Unauthorised";
 import { Navigate } from "react-router-dom";
 
 //role: "student ,"teacher", "admin", "super admin"
 // requiredRoles= ["admin", "superadmin"]
 
-function hasAccess(requiredRoles,role)  {
-    if(!requiredRoles ||requiredRoles.length === 0){
-        return true;
+export function checkAccess(role,requiredRoles)  {
+    if(!requiredRoles )return true; // returns boolean
+    if(!role) return false; //boolean
+    return requiredRoles.includes(role); //boolean
 
-    }
-    return requiredRoles.includes(role);
-};
+}
+    
+
+
+//props ={role,requiredRole,ispage,children }
 const AccessControl = (props) => {
     const requiredRoles = props.requiredRoles;
     const role = props.role;
     const children = props.children;
-    const type = props.type ;
+    const isPage = props.isPage ;
+    // const { role,requiredRoles,isPage ,children } = props;
 
-    if(!hasAccess(requiredRoles,role)){
-        if(type === "page"){
-            return < Navigate to="/unauthorized" replace />;
-        }else {
-            return null;
-        }
-    }
-    
-    return children;
+    const hasAccess = checkAccess(role, requiredRoles);
+
+    if(!hasAccess && isPage) return <Navigate to={"/unauthorized"} replace />; // if it is a page and doent have access it redirects ,and replaces to unauthorized
+    if (!hasAccess) return null; //if dont have aceess and it is a regular component  return null
+    return children;  // has access is true so we are rendering the children and the children can be page or component
 };
 
 export default AccessControl;
 
-// const default ={
-//     requiredRoles:["admin" ,"superadmin"],
-//     role:"guest"
-// };
+// ["/dashboard", "/admin" => /unauthorized"(we replace the admin with unauthorized ) ]
 
-
-
-///
 
 //whether children is page or component
 

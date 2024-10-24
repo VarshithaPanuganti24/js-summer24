@@ -3,10 +3,6 @@ import AccessControl from "../component/Layout/AccessControl";
 import Button from "../component/Button";
 
 
-const superAdminRole =  "super-admin" ;
-const adminRole = ["admin", "super-admin"];
-const requiredRoles = ["admin", "super-admin"];
-
 const Home = () => {
 	const [user,setUser] =useState(null);
 	const [err,setErr] =useState(null);
