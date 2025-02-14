@@ -57,12 +57,12 @@
 // console.log(x);
 // console.log(y);
 // x = "Varsha";
-// // y= "Hello";
+// //y = "Hello";  //TypeError: Assignment to constant variable.
 // console.log(x);
-// // console.log(y);
+// console.log(y);
 // let a; //declaring without assigninng value.
 // console.log(a); // let also takes undefined if not assigned a value
-//const b; // declaring without assigning value
+// //const b; // declaring without assigning value
 
 //re-declaring (using keyword var , let, connst again) vs reassignment
 
@@ -86,21 +86,25 @@
 // Re-declaration: var allows re-declaration; let does not allow re-declaration within the same scope.
 // Global Object: var declares global variables as properties of the global object; let does not.
 // In modern JavaScript development, it is generally recommended to use let (or const for constants) instead of var to avoid the pitfalls associated with var.
-function testVar() {
-    if (true) {
-        var x = 10;
-    }
-    console.log(x); // 10
-}
-testVar();
 
-//Block-scoped: A let variable is scoped to the block in which it is declared (a block is anything within {} braces).
-// function testLet() {
+// VAR IS FUNCTIONSCOPE LET AND CONST IS BLOCK SCOPE
+
+// function testVar() {
 //     if (true) {
-//         let y = 20;
+//         var x = 10;
 //     }
-//     console.log(y); // ReferenceError: y is not defined
+//     console.log(x); // 10
 // }
-// testLet();
+// testVar();
+
+// Block-scoped: A let variable is scoped to the block in which it is declared (a block is anything within {} braces).
+function testLet() {
+    if (true) {
+        let y = 20;
+        console.log(y);
+    }
+    //console.log(y); // ReferenceError: y is not defined AS LET IS A BLOCK SCOPE NOT FUNCTION SCOPE
+}
+testLet();
 
 //lecture
