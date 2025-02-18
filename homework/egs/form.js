@@ -145,3 +145,92 @@
 //     </div>
 //   );
 // }
+
+
+
+///////////
+import { useState, useEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Select, SelectItem } from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
+
+export default function TaskManager() {
+  const [tasks, setTasks] = useState([]);
+  const [title, setTitle] = useState("");
+  const [priority, setPriority] = useState("Medium");
+  const [deadline, setDeadline] = useState("");
+  const [filter, setFilter] = useState("All");
+
+  useEffect(() => {
+    const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    setTasks(savedTasks);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
+  const addTask = () => {
+    if (!title || !deadline) return;
+    const newTask = { id: uuidv4(), title, priority, deadline, completed: false };
+    setTasks([...tasks, newTask]);
+    setTitle("");
+    setDeadline("");
+    setPriority("Medium");
+  };
+
+  const toggleCompletion = (id) => {
+    setTasks(tasks.map(task => task.id === id ? { ...task, completed: !task.completed } : task));
+  };
+
+  const filteredTasks = tasks
+    .filter(task =>
+      filter === "All" ||
+      (filter === "Completed" && task.completed) ||
+      (filter === "Pending" && !task.completed) ||
+      (filter === "High" && task.priority === "High") ||
+      (filter === "Medium" && task.priority === "Medium") ||
+      (filter === "Low" && task.priority === "Low")
+    )
+    .sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
+
+  return (
+    <div className="p-4 max-w-md mx-auto">
+      <h1 className="text-xl font-bold mb-4">Task Manager</h1>
+      <div className="space-y-2">
+        <Input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Task Title" />
+        <Select value={priority} onChange={(e) => setPriority(e.target.value)}>
+          <SelectItem value="Low">Low</SelectItem>
+          <SelectItem value="Medium">Medium</SelectItem>
+          <SelectItem value="High">High</SelectItem>
+        </Select>
+        <Input type="date" value={deadline} onChange={(e) => setDeadline(e.target.value)} />
+        <Button onClick={addTask}>Add Task</Button>
+      </div>
+      <div className="mt-4">
+        <Select value={filter} onChange={(e) => setFilter(e.target.value)}>
+          <SelectItem value="All">All</SelectItem>
+          <SelectItem value="Completed">Completed</SelectItem>
+          <SelectItem value="Pending">Pending</SelectItem>
+          <SelectItem value="High">High Priority</SelectItem>
+          <SelectItem value="Medium">Medium Priority</SelectItem>
+          <SelectItem value="Low">Low Priority</SelectItem>
+        </Select>
+      </div>
+      <div className="mt-4 space-y-2">
+        {filteredTasks.map(task => (
+          <Card key={task.id} className="p-2 flex justify-between items-center">
+            <div>
+              <h2 className={`font-medium ${task.completed ? "line-through" : ""}`}>{task.title}</h2>
+              <p className="text-sm text-gray-500">Priority: {task.priority} | Deadline: {task.deadline}</p>
+            </div>
+            <Checkbox checked={task.completed} onCheckedChange={() => toggleCompletion(task.id)} />
+          </Card>
+        ))}
+      </div>
+    </div>
+  );
+}

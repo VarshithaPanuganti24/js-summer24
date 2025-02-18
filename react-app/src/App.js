@@ -15,7 +15,7 @@ import AuthCannotAccess from "./component/Layout/AuthCannotAccess";
 import AccessControl from "./component/Layout/AccessControl";
 //import FeedbackForm from "./pages/FeedbackForm";
 import FeedbackForm1 from "./pages/FeedbackForm1"
-
+import TaskManager from "./pages/TaskManager";
 
 function App() {
   return (
@@ -27,7 +27,8 @@ function App() {
         <Route path="login" element={<AuthCannotAccess><Login /></AuthCannotAccess>} />
         <Route path="register" element={<AuthCannotAccess><Register /></AuthCannotAccess>} />
         <Route path="unauthorized" element={<Unauthorized />} />
-        <Route path="FeedbackForm1" element= {<FeedbackForm1/>}/>
+        <Route path="FeedbackForm1" element={<FeedbackForm1 />} />
+        <Route path="TaskManager" element={<TaskManager />} />
       </Route>
 
       {/* Private Routes */}
@@ -41,7 +42,7 @@ function App() {
             <AccessControl
               role={"admin"}
               requiredRoles={["admin", "super-admin"]}
-              isPage = {true} >
+              isPage={true} >
               <Admin />
             </AccessControl>
           }
@@ -52,7 +53,7 @@ function App() {
             <AccessControl
               role={"super-admin"}
               requiredRoles={["super-admin"]}
-              isPage >   
+              isPage >
               {/* // we can specify ispage ={true} ispage as both are same  */}
               <SuperAdmin />
             </AccessControl>
@@ -60,7 +61,7 @@ function App() {
         />
       </Route>
     </Routes>
-    
+
   );
 }
 

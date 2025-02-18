@@ -98,6 +98,7 @@ export default function FeedbackForm1() {
         <div className="flex flex-col" >
             
             <label>Rating</label>
+            
             <input
             type="radio"
             name="rating"
@@ -121,8 +122,31 @@ export default function FeedbackForm1() {
         <Button color="primary" type="submit">Submit </Button>
         </form>
 
-        //submittedData?
+        {submittedData && (
+        <div className="bg-white p-6 rounded-xl shadow-lg w-full max-w-md mt-6">
+          <h3 className="text-lg font-bold">Submitted Feedback</h3>
+          <p>
+            <strong>Name:</strong> {submittedData.name}
+          </p>
+          <p>
+            <strong>Email:</strong> {submittedData.email}
+          </p>
+          <p>
+            <strong>Gender:</strong> {submittedData.gender}
+          </p>
+          <p>
+            <strong>Subscribed:</strong>{" "}
+            {submittedData.subscribe ? "Yes" : "No"}
+          </p>
+          <p>
+            <strong>Rating:</strong> {submittedData.rating}
+          </p>
+          <p>
+            <strong>Comments:</strong> {submittedData.comments}
+          </p>
+        </div>
+      )}
 
     </div>
-  )
+  );
 }
