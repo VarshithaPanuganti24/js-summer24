@@ -44,7 +44,7 @@ const Home = () => {
             <h3 className="mt-4 text-lg font-semibold">{product.title}</h3>
             <p className="text-blue-600 font-bold">${product.price}</p>
             <Link
-              to="{`/products/${product.id}`}"
+              to={`/products/${product.id}`}
               className="btn-primary block mt-4 text-center"
             >
               View Details
