@@ -1,16 +1,13 @@
-import { useState } from 'react'
-import MultiStepForm from './components/MutistepForm'
+import React from "react";
+import MultiStepForm from "./components/MutistepForm";
+import "./index.css";
 
-
-import './App.css'
-
-function App() {
+const App = () => {
   return (
-    <div className="min-h-screen bg-gray-100">
-    <MultiStepForm />
-  </div>
-  )
+    <div className="App">
+      <MultiStepForm />
+    </div>
+  );
 };
 
-
-export default App
+export default App;
