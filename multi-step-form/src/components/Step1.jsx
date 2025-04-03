@@ -1,22 +1,27 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useFormContext } from "../state";
 
-const Step1 = ({ nextStep }) => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+
+export const  Step1 =()=>{
+    const { formData, setFormData, nextStep } = useFormContext();
+    const {  register, handleSubmit, formState: { errors },} = useForm({ defaultValues:formData });
+   
+
 
   const onSubmit = (data) => {
-    console.log("Step 1 Data:", data);
+    setFormData((prev) => ({ ...prev, ...data }));
     nextStep();
+    console.log("Step 1 Data:", data);
+    
   };
+
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4">Step 1: Personal Info</h2>
+      <h2 className="text-2xl font-bold mb-4">Personal Info</h2>
       <p>Please provide your name,email address and phone number</p>
+
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
 
       <div className="mb-4">
@@ -68,7 +73,7 @@ const Step1 = ({ nextStep }) => {
   );
 };
 
-export default Step1;
+// export default Step1;
 
 // import React from "react";
 // import { useForm } from "react-hook-form";
