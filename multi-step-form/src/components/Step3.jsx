@@ -34,7 +34,7 @@ const Step3 = () => {
       navigate(`/step${step - 1}`);  // Navigate to previous step based on current step
     };
   return (
-
+    <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-2xl shadow-lg" >
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
     <h2 className="text-2xl font-bold mb-4">Pick add-ons</h2>
     <p>Add-ons help enhance your gaming experience.</p>
@@ -69,6 +69,7 @@ const Step3 = () => {
       </div>
 
     </form>
+    </div>
   );
 };
 

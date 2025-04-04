@@ -50,6 +50,7 @@ const Step4 = () => {
   };
 
   return (
+    <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-2xl shadow-lg">
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
     <div className="Finishing Up">
       <h2 className="text-2xl font-bold mb-4">Finishing UP</h2>
@@ -88,6 +89,7 @@ const Step4 = () => {
       </div>
     </div>
     </form>
+    </div>
   );
 };
 

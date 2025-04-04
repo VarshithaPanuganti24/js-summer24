@@ -121,12 +121,27 @@ button:focus-visible {
 }
 .form-container {
   display: flex;
+  width: 80%;
+  margin: 0 auto;           /* Center horizontally */
+  min-height: 100vh;        /* Full viewport height */
+  align-items: center;      /* Center vertically */
+  justify-content: center;  /* Optional: space evenly */
+  background-color: #f9f9f9; /* Optional: light background for the form area */
+  border-radius: 16px;      /* Optional: rounded corners */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+}
+.form-content {
+  flex: 1;
+  padding: 40px;
+  background-color: white;
+  border-radius: 0 16px 16px 0;
 }
 
 .sidebar {
   width: 200px;
   padding: 20px;
-  background: #f0f0f0;
+  background: #0f0f0f;
+  background-image: url(./assets/images/bg-sidebar-desktop.svg);
 }
 
 .step {

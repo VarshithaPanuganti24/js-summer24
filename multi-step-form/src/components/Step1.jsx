@@ -21,23 +21,23 @@ import { useNavigate } from "react-router-dom";
   };
 
   return (
-    <div>
+    <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-2xl shadow-lg">
       <h2 className="text-2xl font-bold mb-4">Personal Info</h2>
-      <p>Please provide your name,email address and phone number</p>
+      <p className="text-sm text-gray-500 mb-6">Please provide your name,email address and phone number</p>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div className="mb-4">
-          <label className="block text-sm font-medium">Name</label>
+          <label className="block text-sm font-medium text-gray-700">Name</label>
           <input
             {...register("name", { required: "Name is required" })}
             placeholder="Name"
-            className="border p-2 w-full"
+            className="mt-1 w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500"
           />
           {errors.name && <p className="text-red-500">{errors.name.message}</p>}
         </div>
 
         <div className="mb-4">
-          <label className="block text-sm font-medium">Email</label>
+          <label className="block text-sm font-medium text-gray-700">Email</label>
           <input
             {...register("email", {
               required: "Email is required",
@@ -47,14 +47,14 @@ import { useNavigate } from "react-router-dom";
               },
             })}
             placeholder="Email"
-            className="border p-2 w-full"
+            className="mt-1 w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500"
           />
           {errors.email && (
             <p className="text-red-500">{errors.email.message}</p>
           )}
         </div>
         <div className="mb-4">
-          <label className="block text-sm font-medium">Phone Number</label>
+          <label className="block text-sm font-medium text-gray-700">Phone Number</label>
           <input
             {...register("phone", {
               required: "Phone Number is required",
@@ -65,7 +65,7 @@ import { useNavigate } from "react-router-dom";
               },
             })}
             placeholder="Phone Number"
-            className="border p-2 w-full"
+            className="mt-1 w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500"
           />
           {errors.phone && (
             <p className="text-red-500">{errors.phone.message}</p>

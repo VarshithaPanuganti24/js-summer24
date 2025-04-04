@@ -63,6 +63,7 @@ const Step2 = () => {
   };
 
   return (
+    <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-2xl shadow-lg">
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       <h2 className="text-2xl font-bold mb-4">Select Plan</h2>
       <p>You have the option of monthly or yearly billing.</p>
@@ -122,6 +123,7 @@ const Step2 = () => {
         </button>
       </div>
     </form>
+    </div>
   );
 };
 
