@@ -1,13 +1,15 @@
 import React from 'react'
 import { useForm } from 'react-hook-form';
 import { useFormContext } from '../state';
+import { useNavigate } from "react-router-dom";
 
 const Step3 = () => {
-   const { formData, nextStep, prevStep ,updateAddOns} = useFormContext();
+   const { formData, nextStep, prevStep ,step,updateAddOns} = useFormContext();
     
     const { handleSubmit, register, } = useForm({
       defaultValues: formData,
     });
+    const navigate = useNavigate();
 
     const addOns = [
       { id: "onlineService", name: "Online service", price: 1, description: "Access to multiplayer games" },
@@ -22,8 +24,14 @@ const Step3 = () => {
     };
 
     const onSubmit = (data) => {
-      
       nextStep();
+      navigate("/step4");
+      console.log("Step 3 Data:", data);
+    };
+
+    const handleGoBack = () => {
+      prevStep();
+      navigate(`/step${step - 1}`);  // Navigate to previous step based on current step
     };
   return (
 
@@ -52,7 +60,7 @@ const Step3 = () => {
       </div>
 
       <div className="flex justify-between mt-6">
-        <button type="button" onClick={prevStep} className="bg-gray-300 text-black p-2 rounded">
+        <button type="button" onClick={handleGoBack} className="bg-gray-300 text-black p-2 rounded">
           Go Back
         </button>
         <button type="submit" className="bg-blue-500 text-black p-2 rounded">

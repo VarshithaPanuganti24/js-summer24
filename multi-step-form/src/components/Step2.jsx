@@ -1,9 +1,10 @@
-import React, {useEffect}from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useFormContext } from "../state";
+import { useNavigate } from "react-router-dom";
 
 const Step2 = () => {
-  const { formData, setFormData, nextStep, prevStep } = useFormContext();
+  const { formData, setFormData, nextStep, prevStep,step } = useFormContext();
 
   const {
     handleSubmit,
@@ -13,6 +14,7 @@ const Step2 = () => {
   } = useForm({
     defaultValues: formData,
   });
+  const navigate = useNavigate();
 
   const plans = [
     { id: "arcade", name: "Arcade", monthly: 9, yearly: 90 },
@@ -22,7 +24,11 @@ const Step2 = () => {
 
   useEffect(() => {
     // Update global state whenever `plan` changes in React Hook Form
-    setFormData((prev) => ({ ...prev, plan: formData.plan, billing: formData.billing }));
+    setFormData((prev) => ({
+      ...prev,
+      plan: formData.plan,
+      billing: formData.billing,
+    }));
   }, [formData.plan, setFormData]);
 
   // ✅ Update selected plan
@@ -36,11 +42,11 @@ const Step2 = () => {
     setFormData((prev) => {
       const newBilling = prev.billing === "monthly" ? "yearly" : "monthly";
 
-      setValue ("billing", newBilling);
-      return{
-      ...prev,
-      billing: newBilling,
-    };
+      setValue("billing", newBilling);
+      return {
+        ...prev,
+        billing: newBilling,
+      };
     });
   };
 
@@ -48,6 +54,12 @@ const Step2 = () => {
   const onSubmit = (data) => {
     setFormData((prev) => ({ ...prev, ...data }));
     nextStep();
+    navigate("/step3");
+    console.log("Step 2 Data:", data);
+  };
+  const handleGoBack = () => {
+    prevStep();
+    navigate(`/step${step - 1}`);  // Navigate to previous step based on current step
   };
 
   return (
@@ -100,7 +112,7 @@ const Step2 = () => {
       <div className="flex justify-between mt-6">
         <button
           type="button"
-          onClick={prevStep}
+          onClick={handleGoBack}
           className="bg-gray-300 text-black p-2 rounded"
         >
           Go Back

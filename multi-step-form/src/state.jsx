@@ -4,14 +4,38 @@ export const FormContext = createContext({});
 
 export function FormProvider({ children }) {
   const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
     plan: "arcade",
     billing: "monthly",
     addOns: [],
   });
   const [step, setStep] = useState(1);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const markAsSubmitted = () => setIsSubmitted(true);
 
   const nextStep = () => setStep((prev) => prev + 1);
   const prevStep = () => setStep((prev) => prev - 1);
+
+  const isStepCompleted = (stepNumber) => {
+    switch (stepNumber) {
+      case 1:
+        return (
+          formData.name.trim() !== "" &&
+          formData.email.trim() !== "" &&
+          formData.phone.trim() !== ""
+        );
+      case 2:
+        return formData.plan !== "";
+      case 3:
+        return true; // No mandatory fields in step 3
+      case 4:
+        return true;
+      default:
+        return false;
+    }
+  };
 
   const updateAddOns = (addonId, isChecked) => {
     setFormData((prev) => ({
@@ -24,7 +48,18 @@ export function FormProvider({ children }) {
 
   return (
     <FormContext.Provider
-      value={{ step, formData, setFormData, nextStep, prevStep,updateAddOns }}
+      value={{
+        step,
+        setStep,
+        formData,
+        setFormData,
+        nextStep,
+        prevStep,
+        updateAddOns,
+        isSubmitted,
+        markAsSubmitted,
+        isStepCompleted,
+      }}
     >
       {children}
     </FormContext.Provider>

@@ -1,14 +1,16 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useFormContext } from "../state";
+import { useNavigate } from "react-router-dom";
 
 const Step4 = () => {
-  const { formData, prevStep,nextStep } = useFormContext();
+  const { formData, prevStep,nextStep,step,markAsSubmitted } = useFormContext();
 
   const { handleSubmit } = useForm({
         defaultValues: formData,
-      });
-
+  });
+  
+  const navigate = useNavigate();
   const plans = {
     arcade: { name: "Arcade", monthly: 9, yearly: 90 },
     advanced: { name: "Advanced", monthly: 12, yearly: 120 },
@@ -20,25 +22,31 @@ const Step4 = () => {
     largerStorage: { name: "Larger storage", price: 2 },
     customProfile: { name: "Customizable profile", price: 2 },
   };
-
+ 
   // ✅ Calculate Total Price
   const selectedPlan = plans[formData.plan];
-  console.log("formDataplan",formData.plan)
-  console.log("selcetedplan",selectedPlan);
-  console.log("formDatabilling",formData.billing)
+  //console.log("formDataplan",formData.plan)
+  // console.log("selcetedplan",selectedPlan);
+  // console.log("formDatabilling",formData.billing)
   const planPrice = formData.billing === "monthly" ? selectedPlan.monthly : selectedPlan.yearly;
   console.log("planPrice",planPrice);
 
   const addOnsTotal = formData.addOns.reduce((sum, addOnId) => sum + addOns[addOnId].price, 0);
 
-  console.log("formDataaddons",formData.addOns)
+  //console.log("formDataaddons",formData.addOns)
   console.log("addOnsTotal",addOnsTotal);
   const totalPrice = planPrice + addOnsTotal;
   console.log("totalPrice",totalPrice)
 
-  const onSubmit = (data) => {
-    
+  const onSubmit = async () => {
+    markAsSubmitted();
     nextStep();
+    navigate("/step5");
+    
+  };
+  const handleGoBack = () => {
+    prevStep();
+    navigate(`/step${step - 1}`);  // Navigate to previous step based on current step
   };
 
   return (
@@ -71,7 +79,7 @@ const Step4 = () => {
 
       {/* ✅ Navigation Buttons */}
       <div className="flex justify-between mt-6">
-        <button type="button" onClick={prevStep} className="bg-gray-300 text-black p-2 rounded">
+        <button type="button" onClick={handleGoBack} className="bg-gray-300 text-black p-2 rounded">
           Go Back
         </button>
         <button type="submit" className="bg-green-500 text-black p-2 rounded">

@@ -1,21 +1,24 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useFormContext } from "../state";
+import { useNavigate } from "react-router-dom";
 
-
-export const  Step1 =()=>{
-    const { formData, setFormData, nextStep } = useFormContext();
-    const {  register, handleSubmit, formState: { errors },} = useForm({ defaultValues:formData });
-   
-
+ const Step1 = () => {
+  const { formData, setFormData, nextStep, step, setStep } = useFormContext();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ defaultValues: formData });
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
     setFormData((prev) => ({ ...prev, ...data }));
     nextStep();
-    console.log("Step 1 Data:", data);
-    
-  };
+    navigate("/step2");
 
+    console.log("Step 1 Data:", data);
+  };
 
   return (
     <div>
@@ -23,45 +26,49 @@ export const  Step1 =()=>{
       <p>Please provide your name,email address and phone number</p>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-
-      <div className="mb-4">
-      <label className="block text-sm font-medium">Name</label>
-        <input
-          {...register("name", { required: "Name is required" })}
-          placeholder="Name"
-          className="border p-2 w-full"
-        />
-        {errors.name && <p className="text-red-500">{errors.name.message}</p>}
+        <div className="mb-4">
+          <label className="block text-sm font-medium">Name</label>
+          <input
+            {...register("name", { required: "Name is required" })}
+            placeholder="Name"
+            className="border p-2 w-full"
+          />
+          {errors.name && <p className="text-red-500">{errors.name.message}</p>}
         </div>
 
         <div className="mb-4">
-        <label className="block text-sm font-medium">Email</label>
-        <input
-          {...register("email", { required: "Email is required",pattern: {
-            value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-            message: "Invalid email format",
-          }, })}
-          placeholder="Email"
-          className="border p-2 w-full"
-        />
-        {errors.email && <p className="text-red-500">{errors.email.message}</p>}
+          <label className="block text-sm font-medium">Email</label>
+          <input
+            {...register("email", {
+              required: "Email is required",
+              pattern: {
+                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                message: "Invalid email format",
+              },
+            })}
+            placeholder="Email"
+            className="border p-2 w-full"
+          />
+          {errors.email && (
+            <p className="text-red-500">{errors.email.message}</p>
+          )}
         </div>
         <div className="mb-4">
           <label className="block text-sm font-medium">Phone Number</label>
           <input
-            {...register("phonenumber", {
+            {...register("phone", {
               required: "Phone Number is required",
               pattern: {
-                value:
-                  /^(\+?\d{1,3}[-.\s]?)?(\(?\d{1,4}\)?[-.\s]?)?(\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,4})$/,
+                value:/^\d{10}$/,
+                  // /^(\+?\d{1,3}[-.\s]?)?(\(?\d{1,4}\)?[-.\s]?)?(\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,4})$/,
                 message: "Enter valid 10 digit Phone Number",
               },
             })}
-            placeholder="PhoneNumber"
+            placeholder="Phone Number"
             className="border p-2 w-full"
           />
-          {errors.phonenumber && (
-            <p className="text-red-500">{errors.phonenumber.message}</p>
+          {errors.phone && (
+            <p className="text-red-500">{errors.phone.message}</p>
           )}
         </div>
 
@@ -73,7 +80,7 @@ export const  Step1 =()=>{
   );
 };
 
-// export default Step1;
+ export default Step1;
 
 // import React from "react";
 // import { useForm } from "react-hook-form";

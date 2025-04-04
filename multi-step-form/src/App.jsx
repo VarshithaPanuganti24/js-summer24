@@ -1,21 +1,42 @@
 import React from "react";
-
-import { FormProvider } from "./state";
-
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { FormProvider } from "./state"; // Import context provider
 import MultiStepForm from "./components/MultiStepForm";
 
-function App() {
+const App = () => {
   return (
     <FormProvider>
-      <MultiStepForm />
+      <Router>
+        <Routes>
+          <Route path="/step1" element={<MultiStepForm />} />
+          <Route path="/step2" element={<MultiStepForm />} />
+          <Route path="/step3" element={<MultiStepForm />} />
+          <Route path="/step4" element={<MultiStepForm />} />
+          <Route path="/step5" element={<MultiStepForm />} />
+          <Route path="/" element={<MultiStepForm />} />
+        </Routes>
+      </Router>
     </FormProvider>
   );
-}
+};
 
-//export default App;
+export default App;
 
+// import React from "react";
 
+// import { FormProvider } from "./state";
 
+// import MultiStepForm from "./components/MultiStepForm";
+
+// function App() {
+//   return (
+//     <FormProvider>
+//       <MultiStepForm />
+//     </FormProvider>
+//   );
+// }
+
+// export default App;
 
 // import { Step1 } from "./components/Step1";
 // import Step2 from "./components/Step2";
@@ -28,7 +49,7 @@ function App() {
 //     <div className="App">
 //       <AppProvider>
 //         <Router>
-          
+
 //           <Routes>
 //             <Route path="/" element ={< Step1 />} />
 //             <Route path="/step2" element ={< Step2 />} />
@@ -42,4 +63,4 @@ function App() {
 //   );
 // };
 
-export default App;
+//export default App;
