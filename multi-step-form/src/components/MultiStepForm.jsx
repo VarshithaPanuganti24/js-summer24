@@ -10,20 +10,27 @@ import Step4 from "./Step4";
 import Step5 from "./Step5";
 
 const MultiStepForm = () => {
-  const { step, setStep } = useFormContext();
-  const location = useLocation();
+  const { step } = useFormContext();
+  
 
-  useEffect(() => {
-    const currentStep = parseInt(location.pathname.replace("/step", ""));
-    if (!isNaN(currentStep)) {
-      setStep(currentStep);
-    }
-  }, [location.pathname]);
+  // useEffect(() => {
+  //   const currentStep = parseInt(location.pathname.replace("/step", ""));
+  //   if (!isNaN(currentStep)) {
+  //     setStep(currentStep);
+  //   }
+  // }, [location.pathname]);
 
   return (
-    <div className="form-container">
+    <div className=" flex min-h-screen items-center justify-center  p-15">
+
+    <div className=" w-full max-w-[940px] h-[600px] grid grid-rows-[1fr_auto] sm:grid-cols-[1fr_2fr] gap-x-4 rounded-2xl shadow-md p-4">
+      
+
+      <div className=" sm:block rounded-xl bg-[url('/images/bg-sidebar-desktop.svg')] r p-4 text-white" >
       <Sidebar />
-      <div className="form-content">
+      </div>
+      
+      <div className="col-span-full row-start-2 row-end-[10] grid grid-rows-container sm:col-span-1 sm:row-start-auto sm:row-end-auto p-4 sm:p-6">
         {step === 1 && <Step1 />}
         {step === 2 && <Step2 />}
         {step === 3 && <Step3 />}
@@ -31,6 +38,8 @@ const MultiStepForm = () => {
         {step === 5 && <Step5 />}
       </div>
     </div>
+    </div>
+    
   );
 };
 

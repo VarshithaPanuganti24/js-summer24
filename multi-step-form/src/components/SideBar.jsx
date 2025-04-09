@@ -7,10 +7,10 @@ const Sidebar = () => {
   const navigate = useNavigate();
 
   const steps = [
-    { number: 1, label: "Step 1" },
-    { number: 2, label: "Step 2" },
-    { number: 3, label: "Step 3" },
-    { number: 4, label: "Step 4" },
+    { number: 1, label: "Step 1 YOUR INFO" },
+    { number: 2, label: "Step 2 SELECT PLAN" },
+    { number: 3, label: "Step 3 ADD-ONS" },
+    { number: 4, label: "Step 4 SUMMARY" },
   ];
 
   const handleStepClick = (clickedStep) => {
@@ -19,7 +19,7 @@ const Sidebar = () => {
     // ✅ If going backward, always allow
     if (clickedStep <= step) {
       setStep(clickedStep);
-      navigate(`/step${clickedStep}`);
+      // navigate(`/step${clickedStep}`);
       return;
     }
     console.log("Clicked:", clickedStep);
@@ -35,13 +35,13 @@ const Sidebar = () => {
   
     if (allPrevStepsComplete) {
       setStep(clickedStep);
-      navigate(`/step${clickedStep}`);
+      // navigate(`/step${clickedStep}`);
     }
   };
   
 
   return (
-    <div className="sidebar">
+    <div className="w-52 p-5 text-sm ">
       {steps.map(({ number, label }) => {
         const isCurrent = step === number;
         const isAllowed = number <= step || isStepCompleted(number - 1); // basic logic for style

@@ -9,7 +9,7 @@ const Step5 = () => {
   useEffect(() => {
     if (!isSubmitted) {
       setStep(1);
-      navigate("/step1");
+      //navigate("/step1");
     }
   }, []);
 

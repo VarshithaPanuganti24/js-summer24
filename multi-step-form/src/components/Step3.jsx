@@ -4,7 +4,7 @@ import { useFormContext } from '../state';
 import { useNavigate } from "react-router-dom";
 
 const Step3 = () => {
-   const { formData, nextStep, prevStep ,step,updateAddOns} = useFormContext();
+   const { formData, nextStep, prevStep ,step,updateAddOns,} = useFormContext();
     
     const { handleSubmit, register, } = useForm({
       defaultValues: formData,
@@ -25,51 +25,64 @@ const Step3 = () => {
 
     const onSubmit = (data) => {
       nextStep();
-      navigate("/step4");
+      // navigate("/step4");
       console.log("Step 3 Data:", data);
     };
 
     const handleGoBack = () => {
       prevStep();
-      navigate(`/step${step - 1}`);  // Navigate to previous step based on current step
+      // navigate(`/step${step - 1}`);  // Navigate to previous step based on current step
     };
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-2xl shadow-lg" >
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+    <form onSubmit={handleSubmit(onSubmit)} className="col-span-full row-start-2 row-end-[10] grid grid-rows-container sm:col-span-1 sm:row-start-auto sm:row-end-auto">
+    <div className="max-w-md mx-auto p-6 rounded-2xl shadow">
     <h2 className="text-2xl font-bold mb-4">Pick add-ons</h2>
     <p>Add-ons help enhance your gaming experience.</p>
 
-    <div className="addons">
+    <div className="space-y-3">
         {addOns.map((addon) => (
-          <label key={addon.id} className={`addon ${formData.addOns.includes(addon.id) ? "selected" : ""}`}>
+          <label 
+          key={addon.id} 
+          className={`flex items-center justify-between border rounded-lg p-4 cursor-pointer transition hover:border-blue-500
+           ${formData.addOns.includes(addon.id) ? "selected" : ""}`}>
+
+            <div className="flex items-start gap-4">
             <input
               type="checkbox"
               name="addOns"
               value={addon.id}
               checked={formData.addOns.includes(addon.id)}
               onChange={handleCheckboxChange} // ✅ Update state
+              className='mt-2'
               // {...register("addOns")}
             />
-            <div className="addon-content">
-              <strong>{addon.name}</strong>
-              <p>{addon.description}</p>
-              <span>+${addon.price}/mo</span>
+            <div className="text-left">
+              <p className="font-semibold text-blue-900 text-sm">{addon.name}</p>
+              <p className="text-xs text-gray-500">{addon.description}</p>
             </div>
+
+            </div>
+
+              <span className="text-sm text-blue-600 whitespace-nowrap">
+             +${formData.billing === "yearly" ? addon.price * 10 : addon.price}/{formData.billing === "yearly" ? "yr" : "mo"}
+              </span>
+
           </label>
         ))}
       </div>
 
       <div className="flex justify-between mt-6">
-        <button type="button" onClick={handleGoBack} className="bg-gray-300 text-black p-2 rounded">
+        <button type="button" onClick={handleGoBack} className="bg-gray-300 text-white p-2 rounded">
           Go Back
         </button>
-        <button type="submit" className="bg-blue-500 text-black p-2 rounded">
+        <button type="submit" className="bg-blue-500 text-white  p-2 rounded"
+  >
           Next Step
         </button>
       </div>
-
+        </div>
     </form>
-    </div>
+    
   );
 };
 

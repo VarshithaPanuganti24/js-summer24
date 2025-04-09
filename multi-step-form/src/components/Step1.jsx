@@ -15,17 +15,16 @@ import { useNavigate } from "react-router-dom";
   const onSubmit = (data) => {
     setFormData((prev) => ({ ...prev, ...data }));
     nextStep();
-    navigate("/step2");
+    // navigate("/step2");
 
     console.log("Step 1 Data:", data);
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-2xl shadow-lg">
+      <form onSubmit={handleSubmit(onSubmit)} className="col-span-full row-start-2 row-end-[10] grid grid-rows-container sm:col-span-1 sm:row-start-auto sm:row-end-auto">
+        <div className="max-w-md mx-auto p-6 rounded-2xl shadow">
       <h2 className="text-2xl font-bold mb-4">Personal Info</h2>
       <p className="text-sm text-gray-500 mb-6">Please provide your name,email address and phone number</p>
-
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div className="mb-4">
           <label className="block text-sm font-medium text-gray-700">Name</label>
           <input
@@ -71,12 +70,15 @@ import { useNavigate } from "react-router-dom";
             <p className="text-red-500">{errors.phone.message}</p>
           )}
         </div>
-
-        <button type="submit" className="bg-blue-500 text-black p-2 rounded">
+        </div>
+          <div className="flex flex-row-reverse justify-between bg-white px-4 py-4 sm:px-20">
+        <button type="submit" className="bg-blue-500  text-white p-2 rounded">
           Next Step
         </button>
+        </div>
+        
       </form>
-    </div>
+    
   );
 };
 

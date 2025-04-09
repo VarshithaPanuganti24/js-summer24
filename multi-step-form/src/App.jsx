@@ -8,11 +8,11 @@ const App = () => {
     <FormProvider>
       <Router>
         <Routes>
-          <Route path="/step1" element={<MultiStepForm />} />
+          {/* <Route path="/step1" element={<MultiStepForm />} />
           <Route path="/step2" element={<MultiStepForm />} />
           <Route path="/step3" element={<MultiStepForm />} />
           <Route path="/step4" element={<MultiStepForm />} />
-          <Route path="/step5" element={<MultiStepForm />} />
+          <Route path="/step5" element={<MultiStepForm />} /> */}
           <Route path="/" element={<MultiStepForm />} />
         </Routes>
       </Router>
