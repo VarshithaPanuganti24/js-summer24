@@ -7,10 +7,10 @@ const Sidebar = () => {
   const navigate = useNavigate();
 
   const steps = [
-    { number: 1, label: "Step 1 YOUR INFO" },
-    { number: 2, label: "Step 2 SELECT PLAN" },
-    { number: 3, label: "Step 3 ADD-ONS" },
-    { number: 4, label: "Step 4 SUMMARY" },
+    { number: 1, label: "YOUR INFO" },
+    { number: 2, label: "SELECT PLAN" },
+    { number: 3, label: "ADD-ONS" },
+    { number: 4, label: "SUMMARY" },
   ];
 
   const handleStepClick = (clickedStep) => {
@@ -41,21 +41,50 @@ const Sidebar = () => {
   
 
   return (
-    <div className="w-52 p-5 text-sm ">
+    // <div className="flex flex-col gap-4 mt-8 px-4 pt-4 sm:mt-0">
+      <div className="
+  grid 
+  grid-flow-col 
+  justify-center 
+  gap-4 
+  py-6 
+
+  sm:grid-flow-row 
+  sm:justify-normal 
+  sm:gap-3 
+  sm:px-4 
+  sm:py-8
+">
       {steps.map(({ number, label }) => {
-        const isCurrent = step === number;
+         const isCurrent = step === number;
         const isAllowed = number <= step || isStepCompleted(number - 1); // basic logic for style
 
         return (
-          <div
+          <button
             key={number}
-            className={`step ${isCurrent ? "active" : ""} ${
-              !isAllowed ? "disabled" : ""
-            }`}
             onClick={() => handleStepClick(number)}
+            disabled= {!isAllowed}
+            className={`flex items-center gap-4 px-4 py-2 rounded-md transition disabled:opacity-50 hover:bg-muted-foreground/20 w-full font-bold uppercase 
+              ${
+             isCurrent
+                ? " text-white "
+                : "text-white"} 
+                ${!isAllowed ? "opacity-50 cursor-not-allowed" : "hover:bg-white/10"}
+              `} 
           >
-            {label}
-          </div>
+          <div
+              className={`
+                w-8 h-8 rounded-full flex items-center justify-center border 
+                ${isCurrent ? "bg-[#bfe2fd] text-[#02295a] border-transparent" : "border-white"}
+              `}
+            >
+              {number}
+            </div>
+            <div className="hidden sm:block text-left">
+              <div className="text-sm  font-bold text-white">Step {number}</div>
+              <div className="text-md font-bold ">{label}</div>
+            </div>
+          </button>
         );
       })}
     </div>

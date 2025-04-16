@@ -21,22 +21,39 @@ const MultiStepForm = () => {
   // }, [location.pathname]);
 
   return (
-    <div className=" flex min-h-screen items-center justify-center  p-15">
+    <div className=" grid min-h-screen justify-center items-center bg-green-100  ">
 
-    <div className=" w-full max-w-[940px] h-[600px] grid grid-rows-[1fr_auto] sm:grid-cols-[1fr_2fr] gap-x-4 rounded-2xl shadow-md p-4">
-      
+      <div className=" mx-auto grid h-full w-full max-w-[940px] grid-rows-[auto_auto_1fr_auto] gap-x-4 bg-no-repeat shadow-md  sm:max-h-[600px] 
+  sm:grid-cols-[274px_1fr] 
+  sm:grid-rows-none 
+  sm:gap-y-8 
+  sm:rounded-2xl 
+  sm:bg-white 
+  sm:p-4">
 
-      <div className=" sm:block rounded-xl bg-[url('/images/bg-sidebar-desktop.svg')] r p-4 text-white" >
+<div className="
+  rounded-xl 
+  bg-[url('/images/bg-sidebar-mobile.svg')] 
+  bg-cover 
+  bg-no-repeat 
+  text-white 
+  p-4 
+  sm:bg-[url('/images/bg-sidebar-desktop.svg')] 
+  sm:p-6
+">
+
+
+    
       <Sidebar />
-      </div>
+      </div >
       
-      <div className="col-span-full row-start-2 row-end-[10] grid grid-rows-container sm:col-span-1 sm:row-start-auto sm:row-end-auto p-4 sm:p-6">
         {step === 1 && <Step1 />}
         {step === 2 && <Step2 />}
         {step === 3 && <Step3 />}
         {step === 4 && <Step4 />}
         {step === 5 && <Step5 />}
-      </div>
+        {/* </div> */}
+      
     </div>
     </div>
     
@@ -44,3 +61,8 @@ const MultiStepForm = () => {
 };
 
 export default MultiStepForm;
+
+{/* <div className=" w-full max-w-[940px] h-[600px] grid grid-rows-[1fr_auto] sm:grid-cols-[1fr_2fr] gap-x-4 rounded-2xl shadow-lg  bg-white overflow-hidden"> */}
+
+      {/* <div className=" hidden sm:block rounded-xl bg-[url('/images/bg-sidebar-desktop.svg')] bg-cover bg-no-repeat text-white p-6" > */}
+      

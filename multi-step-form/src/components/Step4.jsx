@@ -34,7 +34,11 @@ const Step4 = () => {
   console.log("planPrice", planPrice);
 
   const addOnsTotal = formData.addOns.reduce(
-    (sum, addOnId) => sum + (formData.billing === "yearly" ? addOns[addOnId].price*10 :addOns[addOnId].price),
+    (sum, addOnId) =>
+      sum +
+      (formData.billing === "yearly"
+        ? addOns[addOnId].price * 10
+        : addOns[addOnId].price),
     0
   );
 
@@ -54,68 +58,98 @@ const Step4 = () => {
   };
 
   return (
-    
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4col-span-full row-start-2 row-end-[10] grid grid-rows-container sm:col-span-1 sm:row-start-auto sm:row-end-auto">
-        <div className="max-w-md mx-auto p-6 rounded-2xl shadow">
-          <h2 className="text-2xl font-bold mb-4 text-blue-900">Finishing UP</h2>
-          <p className="text-gray-500 mb-6">Double-check everything looks OK before confirming.</p>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="
+      col-span-full 
+      row-start-2 
+      row-end-[10] 
+      grid 
+      grid-rows-[1fr_auto] 
+      sm:col-span-1 
+      sm:row-start-auto 
+      sm:row-end-auto
+    "
+    >
+      <div className="mx-4 self-start rounded-xl bg-white px-6 py-8 sm:mx-0 sm:self-auto sm:px-20 sm:py-10 ">
+        <h1 className="text-2xl font-bold text-[hsl(var(--secondary))] sm:text-3xl">
+          Finishing up
+        </h1>
+        <p className="my-2 text-base text-[hsl(var(--foreground))] ">
+          Double-check everything looks OK before confirming.
+        </p>
 
-          <div className="bg-gray-100 p-4 rounded-md">
-            <div className="text-blue-900">
-              <div>
-              <strong>
-                {selectedPlan.name} ({formData.billing})
-              </strong>
-              <span className="font-bold text-blue-900 ">
+        <div className="grid gap-3 pt-3 sm:gap-4 sm:pt-8">
+          <div className="grid gap-2 rounded-lg bg-[hsl(var(--muted-foreground))]  p-4 sm:gap-4 sm:p-6">
+
+            <div className="grid grid-cols-[1fr_max-content] items-center gap-5 ">
+              <p>
+                <strong className="text-sm capitalize text-[hsl(var(--secondary))] sm:text-base">
+                  {selectedPlan.name} ({formData.billing})
+                </strong>
+                <br />
+                <button
+                  type="button"
+                  onClick={handleGoBack}
+                  className="whitespace-nowrap underline rounded-md px-4 py-2 text-sm transition-colors disabled:pointer-events-none disabled:opacity-50 hover:bg-[hsl(var(--muted-foreground))]/20  font-medium capitalize text-[hsl(var(--foreground))] hover:text-[hsl(var(--secondary))] sm:px-2"
+          >
+                
+                  Change
+                </button>
+              </p>
+              <span className="text-sm font-bold text-[hsl(var(--secondary))] sm:text-base">
                 ${planPrice}/{formData.billing === "monthly" ? "mo" : "yr"}
               </span>
-              
-              <button
-              type="button"
-              onClick={handleGoBack}
-              className="block text-sm text-blue-500 hover:underline"
+            </div>
+            <hr />
+            <div className="grid  gap-5 text-sm">
+            {formData.addOns.map((addOnId) => (
+              <div
+                key={addOnId}
+                 className=" grid grid-cols-[1fr_max-content] items-center gap-2 "
               >
-              Change
-              </button>
-
+                <span className="text-[hsl(var(--foreground))] ">{addOns[addOnId].name}</span>
+                <span className="text-[hsl(var(--secondary))]">
+                  +$
+                  {formData.billing === "yearly"
+                    ? addOns[addOnId].price * 10
+                    : addOns[addOnId].price}
+                  /{formData.billing === "yearly" ? "yr" : "mo"}
+                </span>
               </div>
-              
-            </div>
-
-            <div className="space-y-2">
-              {formData.addOns.map((addOnId) => (
-                <div key={addOnId} className="flex justify-between text-sm text-gray-600">
-                  <span>{addOns[addOnId].name}</span>
-                  <span>+${formData.billing === "yearly" ? addOns[addOnId].price*10 :addOns[addOnId].price}/{formData.billing === "yearly" ? "yr" : "mo"}</span>
-                </div>
-              ))}
-            </div>
+            ))}
+          </div>
           </div>
 
-          <div className="flex justify-between px-4 pt-6 text-sm text-blue-600">
-            <span className="text-gray-500">Total </span>
-            <span className="text-blue-700 font-bold text-lg">${totalPrice}/{formData.billing === "yearly" ? "yr" : "mo"}</span>
-          </div>
-
-          {/* ✅ Navigation Buttons */}
-          <div className="flex justify-between mt-6">
-            <button
-              type="button"
-              onClick={handleGoBack}
-              className="bg-gray-300 text-black p-2 rounded"
-            >
-              Go Back
-            </button>
-            <button
-              type="submit"
-              className="bg-green-500 text-white p-2 rounded"
-            >
-              Confirm
-            </button>
-          </div>
+          
         </div>
-      </form>
-    
+
+        <div className="grid grid-cols-[1fr_max-content] gap-5 px-4 pt-6 text-sm text-foreground sm:p-6">
+          <span>Total (per {formData.billing === "yearly" ? "year" : "month"})</span>
+          <span className="text-lg font-bold text-[hsl(var(--primary))] sm:text-xl">
+            +${totalPrice}/{formData.billing === "yearly" ? "yr" : "mo"}
+          </span>
+        </div>
+        
+      </div>
+
+      {/* ✅ Navigation Buttons */}
+      <div className="flex flex-row-reverse justify-between bg-white px-4 py-4 sm:px-20">
+        <button
+          type="submit"
+          className="rounded-md  px-4 py-3 text-sm  transition-colors disabled:pointer-events-none disabled:opacity-50  bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] hover:bg-[hsl(var(--primary))]/90  font-medium capitalize sm:px-6"
+        >
+          Confirm
+        </button>
+
+        <button
+          type="button"
+          onClick={handleGoBack}
+          className="whitespace-nowrap rounded-md px-4 py-2 text-sm transition-colors disabled:pointer-events-none disabled:opacity-50 hover:bg-[hsl(var(--muted-foreground))]/20  font-medium capitalize text-[hsl(var(--foreground))] hover:text-[hsl(var(--secondary))] sm:px-2">
+          Go Back
+        </button>
+      </div>
+    </form>
   );
 };
 
