@@ -32,33 +32,34 @@ const Step1 = () => {
       sm:col-span-1 
       sm:row-start-auto 
       sm:row-end-auto
+      min-h-[500px]  
     "
     >
       <div className="mx-4 self-start rounded-xl bg-white px-6 py-8 sm:mx-0 sm:self-auto sm:px-20 sm:py-10 ">
-        <h1 className="text-2xl font-bold text-secondary sm:text-3xl">
+        <h1 className="text-2xl font-bold text-[hsl(var(--secondary))] sm:text-3xl">
           Personal Info
         </h1>
-        <p className="my-2 text-base text-gray-500 ">
+        <p className="my-2 text-base text-[hsl(var(--foreground))] ">
           Please provide your name,email address and phone number
         </p>
         <div className="grid gap-3 pt-3 sm:gap-4 sm:pt-8">
           <div className="grid w-full grid-cols-2">
-            <label className="inline-block text-sm text-secondary sm:mb-1 sm:text-base">
+            <label className="inline-block text-sm text-[hsl(var(--secondary))] sm:mb-1 sm:text-base">
               Name
             </label>
             <input
               {...register("name", { required: "Name is required" })}
               placeholder="e.g. Stephen King"
-              className="col-span-full w-full rounded border border-gray-200 bg-white px-4 py-2 text-sm text-black outline-none duration-200 hover:border-primary focus:bg-gray-50 focus-visible:border-primary sm:rounded-lg sm:px-3 sm:py-3 sm:text-base font-medium placeholder:text-foreground"
+              className="col-span-full w-full rounded border border-gray-200 bg-white px-4 py-2 text-sm text-black outline-none duration-200 hover:border-[hsl(var(--primary))] focus:bg-gray-50 focus-visible:border-[hsl(var(--primary))] sm:rounded-lg sm:px-3 sm:py-3 sm:text-base font-medium placeholder:text-[hsl(var(--foreground))]"
             />
             {errors.name && (
-              <p className="text-red-500">{errors.name.message}</p>
+              <p className="text-red-500 tex-sm mt-1">{errors.name.message}</p>
             )}
           </div>
 
           <div className="grid w-full grid-cols-2">
-            <label className="inline-block text-sm text-secondary sm:mb-1 sm:text-base">
-              Name
+            <label className="inline-block text-sm text-[hsl(var(--secondary))] sm:mb-1 sm:text-base">
+              Email Address
             </label>
             <input
               {...register("email", {
@@ -69,16 +70,16 @@ const Step1 = () => {
                 },
               })}
               placeholder="e.g. stephenking@lorem.com"
-              className="col-span-full w-full rounded border border-gray-200 bg-white px-4 py-2 text-sm text-black outline-none duration-200 hover:border-primary focus:bg-gray-50 focus-visible:border-primary sm:rounded-lg sm:px-3 sm:py-3 sm:text-base font-medium placeholder:text-foreground"
+              className="col-span-full w-full rounded border border-gray-200 bg-white px-4 py-2 text-sm text-black outline-none duration-200 hover:border-[hsl(var(--primary))] focus:bg-gray-50 focus-visible:border-[hsl(var(--primary))] sm:rounded-lg sm:px-3 sm:py-3 sm:text-base font-medium placeholder:text-[hsl(var(--foreground))]"
             />
             {errors.email && (
-              <p className="text-red-500">{errors.email.message}</p>
+              <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
             )}
           </div>
 
           <div className="grid w-full grid-cols-2">
-            <label className="inline-block text-sm text-secondary sm:mb-1 sm:text-base">
-              Name
+            <label className="inline-block text-sm text-[hsl(var(--secondary))] sm:mb-1 sm:text-base">
+              Phone Number
             </label>
             <input
               {...register("phone", {
@@ -90,11 +91,11 @@ const Step1 = () => {
                 },
               })}
               placeholder="e.g. +1 234 567 890"
-              className="col-span-full w-full rounded border border-gray-200 bg-white px-4 py-2 text-sm text-black outline-none duration-200 hover:border-primary focus:bg-gray-50 focus-visible:border-primary sm:rounded-lg sm:px-3 sm:py-3 sm:text-base font-medium placeholder:text-foreground"
+              className="col-span-full w-full rounded border border-gray-200 bg-white px-4 py-2 text-sm text-black outline-none duration-200 hover:border-[hsl(var(--primary))] focus:bg-gray-50 focus-visible:border-[hsl(var(--primary))] sm:rounded-lg sm:px-3 sm:py-3 sm:text-base font-medium placeholder:text-[hsl(var(--foreground))]"
             
             />
             {errors.phone && (
-              <p className="text-red-500">{errors.phone.message}</p>
+              <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>
             )}
           </div>
         </div>
@@ -102,7 +103,7 @@ const Step1 = () => {
       {/* Button Section */}
       
       <div className="flex flex-row-reverse justify-between bg-white px-4 py-4 sm:px-20">
-        <button type="submit" className="rounded-md bg-[hsl(var(--secondary))] text-[hsl(var(--secondary-foreground))] px-4 py-3 text-base font-medium capitalize transition-colors hover:bg-secondary/80 disabled:pointer-events-none disabled:opacity-50 sm:px-6">
+        <button type="submit" className=" whitespace-nowrap rounded-md bg-[hsl(var(--secondary))] text-[hsl(var(--secondary-foreground))] px-4 py-3 text-base font-medium capitalize transition-colors hover:bg-[hsl(var(--secondary))]/80 disabled:pointer-events-none disabled:opacity-50 sm:px-6">
           next step
         </button>
       </div>

@@ -51,21 +51,22 @@ const Step3 = () => {
     <form
       onSubmit={handleSubmit(onSubmit)}
       className="
-    col-span-full 
-    row-start-2 
-    row-end-[10] 
-    grid 
-    grid-rows-[1fr_auto] 
-    sm:col-span-1 
-    sm:row-start-auto 
-    sm:row-end-auto
-  "
+      col-span-full 
+      row-start-2 
+      row-end-[10] 
+      grid 
+      grid-rows-[1fr_auto] 
+      sm:col-span-1 
+      sm:row-start-auto 
+      sm:row-end-auto
+      min-h-[500px]  
+    "
     >
-      <div className="max-w-md mx-auto p-6 rounded-2xl shadow">
-        <h2 className="text-2xl font-bold text-secondary sm:text-3xl">
+      <div className="mx-4 self-start rounded-xl bg-white px-6 py-8 sm:mx-0 sm:self-auto sm:px-20 sm:py-10 ">
+        <h1 className="text-2xl font-bold text-[hsl(var(--secondary))] sm:text-3xl">
           Pick add-ons
-        </h2>
-        <p className="my-2 text-base text-gray-500">
+        </h1>
+        <p className="my-2 text-base text-hsl(var(--foreground))]">
           Add-ons help enhance your gaming experience.
         </p>
 
@@ -75,13 +76,19 @@ const Step3 = () => {
             return (
               <label
                 key={addon.id}
-                className={`grid grid-cols-[max-content_1fr_max-content] items-center gap-4 sm:gap-5 rounded-lg border px-4 py-4 sm:px-6 transition hover:cursor-pointer hover:border-blue-500 focus-visible:border-blue-500 ${
-                  isChecked ? "border-[hsl(var(--primary))] bg-[hsl(var(--muted-foreground))]" : "border-foreground bg-transparent"
+                className={` border-hsl(var(--foreground))] grid grid-cols-[max-content_1fr_max-content] items-center gap-4 sm:gap-5 rounded-lg border px-4 py-4 sm:px-6 transition hover:cursor-pointer hover:border-hsl(var(--primary))] focus-visible:border-hsl(var(--primary))]${
+                  isChecked
+                    ? "border-[hsl(var(--primary))] bg-[hsl(var(--muted-foreground))]"
+                    : "border-foreground bg-transparent"
                 }`}
               >
                 <div
                   className={`grid aspect-square w-5 h-5 place-content-center rounded border p-1 transition 
-  ${isChecked ? "bg-[hsl(var(--primary))] border-[hsl(var(--foreground))]" : "border-gray-400"}`}
+  ${
+    isChecked
+      ? "bg-[hsl(var(--primary))] border-[hsl(var(--foreground))]"
+      : "border-gray-400"
+  }`}
                 >
                   {isChecked && (
                     <svg
@@ -101,13 +108,13 @@ const Step3 = () => {
                 </div>
 
                 {/* <div className="text-left"> */}
-                  <p className="text-xs text-[hsl(var(--foreground))] sm:text-sm">
-                    <strong className="text-sm text-[hsl(var(--secondary))] sm:text-base">
-                      {addon.name}
-                    </strong>
-                    <br />
-                    {addon.description}
-                  </p>
+                <p className="text-xs text-[hsl(var(--foreground))] sm:text-sm">
+                  <strong className="text-sm text-[hsl(var(--secondary))] sm:text-base">
+                    {addon.name}
+                  </strong>
+                  <br />
+                  {addon.description}
+                </p>
                 {/* </div> */}
 
                 <span className="text-xs text-[hsl(var(--primary))] sm:text-sm ">
@@ -130,24 +137,23 @@ const Step3 = () => {
             );
           })}
         </div>
-        </div>
-        <div className="flex flex-row-reverse justify-between bg-white px-4 py-4 sm:px-20">
-          <button
-            type="submit"
-            className="rounded-md bg-[hsl(var(--secondary))] text-[hsl(var(--secondary-foreground))] px-4 py-3 text-base font-medium capitalize transition-colors hover:bg-[hsl(var(--secondary))]/80 disabled:pointer-events-none disabled:opacity-50 sm:px-6"
-          >
-            Next Step
-          </button>
+      </div>
+      <div className="flex flex-row-reverse justify-between bg-white px-4 py-4 sm:px-20">
+        <button
+          type="submit"
+          className="rounded-md bg-[hsl(var(--secondary))] text-[hsl(var(--secondary-foreground))] px-4 py-3 text-base font-medium capitalize transition-colors hover:bg-[hsl(var(--secondary))]/80 disabled:pointer-events-none disabled:opacity-50 sm:px-6"
+        >
+          Next Step
+        </button>
 
-          <button
-            type="button"
-            onClick={handleGoBack}
-            className="whitespace-nowrap rounded-md px-4 py-2 text-sm transition-colors disabled:pointer-events-none disabled:opacity-50 hover:bg-[hsl(var(--muted-foreground))]/20  font-medium capitalize text-[hsl(var(--foreground))] hover:text-[hsl(var(--secondary))] sm:px-2"
-          >
-            go back
-          </button>
-        </div>
-      
+        <button
+          type="button"
+          onClick={handleGoBack}
+          className="whitespace-nowrap rounded-md px-4 py-2 text-sm transition-colors disabled:pointer-events-none disabled:opacity-50 hover:bg-[hsl(var(--muted-foreground))]/20  font-medium capitalize text-[hsl(var(--foreground))] hover:text-[hsl(var(--secondary))] sm:px-2"
+        >
+          go back
+        </button>
+      </div>
     </form>
   );
 };

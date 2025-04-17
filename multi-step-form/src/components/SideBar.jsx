@@ -41,7 +41,7 @@ const Sidebar = () => {
   
 
   return (
-    // <div className="flex flex-col gap-4 mt-8 px-4 pt-4 sm:mt-0">
+    
       <div className="
   grid 
   grid-flow-col 
@@ -64,12 +64,11 @@ const Sidebar = () => {
             key={number}
             onClick={() => handleStepClick(number)}
             disabled= {!isAllowed}
-            className={`flex items-center gap-4 px-4 py-2 rounded-md transition disabled:opacity-50 hover:bg-muted-foreground/20 w-full font-bold uppercase 
+            className={`flex items-center gap-4 px-4 py-2 rounded-md transition  w-full font-bold uppercase 
               ${
              isCurrent
-                ? " text-white "
-                : "text-white"} 
-                ${!isAllowed ? "opacity-50 cursor-not-allowed" : "hover:bg-white/10"}
+                ? " text-white" : "text-white"} 
+                ${!isAllowed ? "text-white hover:bg-white/10 " : "hover:bg-white/10"}
               `} 
           >
           <div
@@ -80,6 +79,7 @@ const Sidebar = () => {
             >
               {number}
             </div>
+            
             <div className="hidden sm:block text-left">
               <div className="text-sm  font-bold text-white">Step {number}</div>
               <div className="text-md font-bold ">{label}</div>

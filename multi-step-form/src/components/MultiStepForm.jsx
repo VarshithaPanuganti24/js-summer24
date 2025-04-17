@@ -23,7 +23,7 @@ const MultiStepForm = () => {
   return (
     <div className=" grid min-h-screen justify-center items-center bg-green-100  ">
 
-      <div className=" mx-auto grid h-full w-full max-w-[940px] grid-rows-[auto_auto_1fr_auto] gap-x-4 bg-no-repeat shadow-md  sm:max-h-[600px] 
+      <div className=" mx-auto grid h-[700px] w-full max-w-[940px] grid-rows-[auto_auto_1fr_auto] gap-x-4 bg-no-repeat shadow-md  
   sm:grid-cols-[274px_1fr] 
   sm:grid-rows-none 
   sm:gap-y-8 
@@ -41,18 +41,15 @@ const MultiStepForm = () => {
   sm:bg-[url('/images/bg-sidebar-desktop.svg')] 
   sm:p-6
 ">
-
-
-    
       <Sidebar />
       </div >
-      
+      <div >
         {step === 1 && <Step1 />}
         {step === 2 && <Step2 />}
         {step === 3 && <Step3 />}
         {step === 4 && <Step4 />}
         {step === 5 && <Step5 />}
-        {/* </div> */}
+        </div>
       
     </div>
     </div>

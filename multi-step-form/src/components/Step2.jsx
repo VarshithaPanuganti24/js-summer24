@@ -84,21 +84,22 @@ const Step2 = () => {
     <form
       onSubmit={handleSubmit(onSubmit)}
       className="
-    col-span-full 
-    row-start-2 
-    row-end-[10] 
-    grid 
-    grid-rows-[1fr_auto] 
-    sm:col-span-1 
-    sm:row-start-auto 
-    sm:row-end-auto
-  "
+      col-span-full 
+      row-start-2 
+      row-end-[10] 
+      grid 
+      grid-rows-[1fr_auto] 
+      sm:col-span-1 
+      sm:row-start-auto 
+      sm:row-end-auto
+      min-h-[500px]  
+    "
     >
       <div className="mx-4 self-start rounded-xl bg-white px-6 py-8 sm:mx-0 sm:self-auto sm:px-20 sm:py-10 ">
-        <h1 className="text-2xl font-bold text-secondary sm:text-3xl">
+      <h1 className="text-2xl font-bold text-[hsl(var(--secondary))] sm:text-3xl">
           Select Your plan
         </h1>
-        <p className="my-2 text-base text-gray-500 ">
+        <p className="my-2 text-base text-[hsl(var(--foreground))] ">
           You have the option of monthly or yearly billing.
         </p>
 
@@ -113,7 +114,7 @@ const Step2 = () => {
 
               className={`relative w-full flex gap-3 rounded-lg border p-4 transition-all hover:cursor-pointer 
                 sm:grid sm:gap-10
-                hover:border-[hsl(var(--primary))]
+                hover:border-[hsl(var(--primary))] focus-visible:border-[hsl(var(--primary))]
                 ${
                   formData.plan === plan.id
                     ? "border-[hsl(var(--primary))] bg-[hsl(var(--muted-foreground))]"
@@ -139,6 +140,9 @@ const Step2 = () => {
                   ${formData.billing === "monthly" ? plan.monthly : plan.yearly}
                   /{formData.billing === "monthly" ? "mo" : "yr"}
                 </span>
+                <span class="text-xs font-medium text-secondary">
+                {formData.billing === "yearly" ? "2 months free" :"" }</span>
+
               </div>
             </label>
           ))}
@@ -149,7 +153,7 @@ const Step2 = () => {
 
         {/* ✅ Billing Toggle */}
         <div className="toggle-container">
-          <label className="flex items-center justify-center gap-10 p-3 rounded-lg cursor-pointer w-full mx-auto">
+          <label className="flex items-center justify-center gap-10 p-3 rounded-lg cursor-pointer w-full mx-auto bg-[hsl(var(--muted-foreground))]">
             <span
               className={`${
                 formData.billing === "monthly"
@@ -174,6 +178,8 @@ const Step2 = () => {
             >
               Yearly
             </span>
+            
+
           </label>
         </div>
         </div>
@@ -181,7 +187,7 @@ const Step2 = () => {
         <div className="flex flex-row-reverse justify-between bg-white px-4 py-4 sm:px-20">
           <button
             type="submit"
-            className="rounded-md bg-[hsl(var(--secondary))] text-[hsl(var(--secondary-foreground))] px-4 py-3 text-base font-medium capitalize transition-colors hover:bg-secondary/80 disabled:pointer-events-none disabled:opacity-50 sm:px-6"
+            className="rounded-md bg-[hsl(var(--secondary))] text-[hsl(var(--secondary-foreground))] px-4 py-3 text-base font-medium capitalize transition-colors hover:bg-[hsl(var(--secondary))]/80 disabled:pointer-events-none disabled:opacity-50 sm:px-6"
           >
             Next Step
           </button>
@@ -189,9 +195,9 @@ const Step2 = () => {
           <button
             type="button"
             onClick={handleGoBack}
-            className="whitespace-nowrap rounded-md px-4 py-3 text-base font-medium capitalize text-foreground transition-colors hover:bg-muted-foreground/20 hover:text-secondary disabled:pointer-events-none disabled:opacity-50 sm:px-2"
+            className="whitespace-nowrap rounded-md px-4 py-2 text-sm transition-colors disabled:pointer-events-none disabled:opacity-50 hover:bg-[hsl(var(--muted-foreground))]/20  font-medium capitalize text-[hsl(var(--foreground))] hover:text-[hsl(var(--secondary))] sm:px-2"
           >
-            Go Back
+            go back
           </button>
         </div>
       

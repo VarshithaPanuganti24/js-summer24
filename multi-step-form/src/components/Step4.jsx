@@ -59,20 +59,21 @@ const Step4 = () => {
 
   return (
     <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="
-      col-span-full 
-      row-start-2 
-      row-end-[10] 
-      grid 
-      grid-rows-[1fr_auto] 
-      sm:col-span-1 
-      sm:row-start-auto 
-      sm:row-end-auto
-    "
-    >
+    onSubmit={handleSubmit(onSubmit)}
+    className="
+    col-span-full 
+    row-start-2 
+    row-end-[10] 
+    grid 
+    grid-rows-[1fr_auto] 
+    sm:col-span-1 
+    sm:row-start-auto 
+    sm:row-end-auto
+    min-h-[500px]  
+  "
+  >
       <div className="mx-4 self-start rounded-xl bg-white px-6 py-8 sm:mx-0 sm:self-auto sm:px-20 sm:py-10 ">
-        <h1 className="text-2xl font-bold text-[hsl(var(--secondary))] sm:text-3xl">
+      <h1 className="text-2xl font-bold text-[hsl(var(--secondary))] sm:text-3xl">
           Finishing up
         </h1>
         <p className="my-2 text-base text-[hsl(var(--foreground))] ">
