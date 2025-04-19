@@ -23,7 +23,7 @@ const MultiStepForm = () => {
   return (
     <div className=" grid min-h-screen justify-center items-center bg-green-100  ">
 
-      <div className=" mx-auto grid h-[700px] w-full max-w-[940px] grid-rows-[auto_auto_1fr_auto] gap-x-4 bg-no-repeat shadow-md  
+ <div className=" mx-auto grid h-[650px] w-full max-w-[940px] grid grid-rows-[1fr_auto] gap-x-4 bg-no-repeat shadow-md  
   sm:grid-cols-[274px_1fr] 
   sm:grid-rows-none 
   sm:gap-y-8 
@@ -40,7 +40,7 @@ const MultiStepForm = () => {
   p-4 
   sm:bg-[url('/images/bg-sidebar-desktop.svg')] 
   sm:p-6
-">
+">    
       <Sidebar />
       </div >
       <div >
@@ -63,3 +63,21 @@ export default MultiStepForm;
 
       {/* <div className=" hidden sm:block rounded-xl bg-[url('/images/bg-sidebar-desktop.svg')] bg-cover bg-no-repeat text-white p-6" > */}
       
+{/* <div className=" mx-auto grid h-[700px] w-full max-w-[940px] grid-rows-[auto_auto_1fr_auto] gap-x-4 bg-no-repeat shadow-md  
+  sm:grid-cols-[274px_1fr] 
+  sm:grid-rows-none 
+  sm:gap-y-8 
+  sm:rounded-2xl 
+  sm:bg-white 
+  sm:p-4">
+
+<div className="
+  rounded-xl 
+  bg-[url('/images/bg-sidebar-mobile.svg')] 
+  bg-cover 
+  bg-no-repeat 
+  text-white 
+  p-4 
+  sm:bg-[url('/images/bg-sidebar-desktop.svg')] 
+  sm:p-6
+"></div> */}
