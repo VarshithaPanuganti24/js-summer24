@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: 'class',
+  
     content: [
       './index.html',
       './src/**/*.{js,ts,jsx,tsx}'
@@ -11,20 +11,25 @@ export default {
           nunito: ['"Nunito Sans"', 'sans-serif'],
         },
         colors: {
-          white: 'hsl(0, 0%, 100%)',
-          'background-light-gray': 'hsl(0, 0%, 98%)',
-          'background-dark-mode': 'hsl(209, 23%, 22%)',
-          'background-dark-blue': 'hsl(207, 26%, 17%)',
-          'dark-gray': 'hsl(0, 0%, 52%)',
-          'header-border': 'hsl(0, 0%, 86%)',
+          white: "hsl(var(--white))",
+          backgroundLightGray: "hsl(var(--background-light-gray))",
+          darkGray: "hsl(var(--dark-gray))",
+          backgroundDarkBlue: "hsl(var(--background-dark-blue))",
+          backgroundDarkMode: "hsl(var(--background-dark-mode))",
+          headerBorder: "hsl(var(--header-border))",
+  
+          // Defaults that might change based on theme
+          background: "hsl(var(--background))",
+          text: "hsl(var(--text))",
         },
         fontSize: {
-          'very-sm': '14px',
-          sm: '16px',
-          base: '18px',
-          lg: '24px',
-          xl: '32px',
+          verySmall: "var(--very-small)",
+          small: "var(--small)",
+          medium: "var(--medium)",
+          large: "var(--large)",
+          veryLarge: "var(--very-large)",
         },
+       
       },
     },
     plugins: [],

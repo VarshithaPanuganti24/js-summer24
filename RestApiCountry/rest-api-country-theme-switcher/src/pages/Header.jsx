@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <header
       aria-label="Country Flag Application Header"
-      className="flex justify-between items-center px-4 py-6 bg-white dark:bg-background-dark-mode shadow-md transition-colors duration-300 "
+      className="flex justify-between items-center px-4 py-6 dark:bg-[hsl(var(--background-dark-mode))] shadow-md transition-colors duration-300 "
     >
       <h1
         aria-label="Navigate to Home"
@@ -16,7 +16,7 @@ const Header = () => {
         Where in the world
       </h1>
       <button
-        className="flex items-center gap-2  bg-background-light-grey dark:bg-background-dark-mode text-dark-gray dark:text-white px-2 py-2 rounded-md shadow transition-colors duration-30 "
+        className="flex items-center gap-2  bg-[hsl(var(--background-light-gray)] dark:bg-[hsl(var(--background-dark-mode))] text-[hsl(var(--dark-gray))] dark:text-hsl(var(--white)) px-2 py-2 rounded-md shadow transition-colors duration-30 "
         aria-label="Switch to Dark Mode"
         onClick={toggleTheme}
       >
@@ -27,7 +27,7 @@ const Header = () => {
         />
 
         <span className="text-sm ">
-          {theme === "light" ? "Dark Mode" : "Light Mode"}
+          {theme === "dark" ? "Light Mode" : "Dark Mode"}
         </span>
       </button>
     </header>
