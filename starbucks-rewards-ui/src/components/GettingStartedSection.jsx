@@ -17,7 +17,7 @@ const GettingStartedSection = () => {
               <img src="/getting-started-1@2x.jpg" alt="Step 1" width="48" />
             </div>
             <div>
-                <h3 className="text-sm font-semibold pb-1">Order and pay how you’d like</h3>
+                <h3 className="text-sm font-semibold pb-1"> Create an account </h3>
                 <p>To get started, <span className="underline text-green-900">join now.</span>You can also <br /><span className="underline text-green-900"> join in the app </span>to get access to the <br />full range of Starbucks® Rewards<br /> benefits.</p>
 
             </div>
@@ -28,7 +28,7 @@ const GettingStartedSection = () => {
               <img src="/getting-started-2@2x.jpg" alt="Step 1" width="48" />
             </div>
             <div>
-                <h3 className="text-sm font-semibold pb-1">Create an account</h3>
+                <h3 className="text-sm font-semibold pb-1">Order and pay how you’d like</h3>
                 <p>Use cash, credit/debit card or save<br /> some time and pay right through the <br />app. You’ll collect Stars all ways.<br /><span className="underline text-green-900">Learn How</span></p>
                 
 

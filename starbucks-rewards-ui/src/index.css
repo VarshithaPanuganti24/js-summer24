@@ -1,6 +1,6 @@
 @import "tailwindcss";
 :root {
-  font-family: 'Open Sans',system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -29,13 +29,18 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   /* font-size: 3.2em; */
   line-height: 1.1;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 button {
@@ -54,18 +59,20 @@ button:hover {
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 4px -webkit-focus-ring-color;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
-    --sand:#fbf5e9;
-    --textgreenheader:#414233;
-    --textgreenh2:#545b4a;
-    --bggreen:#1b744c;
-    
+    --sand: #fbf5e9;
+    --textgreenheader: #414233;
+    --textgreenh2: #545b4a;
+    --bggreen: #1b744c;
+    --bggyf:#f0f8f5;
+    --bggyfimg:#d5e9e2;
+    --bgtab:#1a754b;
 
   }
   a:hover {

@@ -41,15 +41,18 @@ export default function GetYourFavorites() {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <section className="py-5 md:py-9 bg-green-100 text-center">
-      <div className="pt-7">
-        <h2 className="text-lg font-semibold pb-3 md:pb-7" tabIndex="-1">
+    <section className="py-5 md:py-9 text-center">
+      <div className="pt-7 " style={{ backgroundColor: "var(--bggyf)" }}>
+        <h2
+          className="text-lg font-semibold pb-3 md:pb-7 "
+          tabIndex="-1"
+        >
           Get your favorites for free
         </h2>
 
         {/* Tab List */}
         <div
-          className="flex justify-around overflow-x-auto"
+          className="flex justify-center "
           role="tablist"
           aria-label="Reward levels"
         >
@@ -59,12 +62,12 @@ export default function GetYourFavorites() {
               role="tab"
               aria-selected={activeTab === index}
               onClick={() => setActiveTab(index)}
-              className={`px-2 pt-2 pb-3 flex-grow text-md font-semibold relative ${
-                activeTab === index ? "border-b-2 border-yellow-500" : ""
+              className={` pt-2 pb-3 flex text-md font-semibold relative ${
+                activeTab === index ? "border-b-2 border-green-900" : ""
               }`}
             >
               {reward.stars}
-              <span aria-hidden="true" className="text-xs text-yellow-500">
+              <span aria-hidden="true" className="text-xs pt-1 text-yellow-500">
                 ★
               </span>
               <span className="sr-only">Stars</span>
@@ -73,7 +76,8 @@ export default function GetYourFavorites() {
         </div>
 
         {/* Active Tab Panel */}
-        <div className="bg-green-50 py-7 px-3">
+        <div className="py-3 px-3" 
+        style={{backgroundColor:'var(--bggyfimg)'}}>
           <div className="md:flex justify-center items-center">
             <div className="md:mr-7 md:w-1/2 relative mb-6 md:mb-0">
               <div className="pb-[56.25%] relative w-full">
