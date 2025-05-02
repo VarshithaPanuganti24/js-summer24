@@ -16,11 +16,11 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  /* color: #646cff; */
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  /* color: #535bf2; */
 }
 
 body {
@@ -61,11 +61,15 @@ button:focus-visible {
   :root {
     color: #213547;
     background-color: #ffffff;
-    --sand:#fbf5e9
+    --sand:#fbf5e9;
+    --textgreenheader:#414233;
+    --textgreenh2:#545b4a;
+    --bggreen:#1b744c;
+    
 
   }
   a:hover {
-    color: #747bff;
+    /* color: #747bff; */
   }
   /* button {
     background-color: #f9f9f9;
