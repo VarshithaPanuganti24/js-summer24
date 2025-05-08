@@ -4,15 +4,15 @@ import { MapPinIcon } from "@heroicons/react/24/outline";
 const Navbar = () => {
   return (
     <header className=" bg-white  shadow-sm w-full">
-      <div className=" mx-auto px-4 py-3 flex items-center justify-between">
+      <div className=" mx-auto px-7 py-7 flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-12">
           <img
-            src="/Starbucks-logo-png-transparent.png"
+            src="/starbucks-logo-png-transparent.png"
             alt="Starbucks Logo"
             className="w-10 h-10"
           />
-          <nav className="hidden md:flex space-x-6 text-sm font-semibold text-gray-700">
+          <nav className="hidden md:flex  text-md font-semibold text-gray-700 space-x-10">
             <span className="hover:text-black cursor-default">Menu</span>
             <span className="hover:text-black cursor-default">Rewards</span>
             <span className="hover:text-black cursor-default">Gift Cards</span>

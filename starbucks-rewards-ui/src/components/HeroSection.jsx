@@ -17,7 +17,7 @@ const HeroSection = () => {
         style={{backgroundColor:'var(--bggreen)'}}>
           Join now
         </button>
-        <p className="text-black text-md mb-6  ">
+        <p className="text-black text-md mb-6 pt-7 ">
           It's even better <span className="underline"> with the app.</span>
         </p>
       </div>
