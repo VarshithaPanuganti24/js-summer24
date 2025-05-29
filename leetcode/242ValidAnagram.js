@@ -103,3 +103,24 @@ function isAnagram(s1, t1) {
 
 
 
+// function App() {
+//   const squares= Array(9).fill(null);
+
+//   return (
+//     <div className='flex justify-center items-center min-h-screen'
+//       >
+//     <div className='grid grid-cols-3 grid-rows-3 gap-2'>
+//       {squares.map((_,i) => (
+//         <button
+//         key={i}
+//         className="w-24 h-24 text-3xl font-bold bg-gray-200 hover:bg-gray-300"
+//         >
+         
+//         </button>
+//       ))}
+//     </div>
+//     </div>
+//   );
+// };
+
+// export default App

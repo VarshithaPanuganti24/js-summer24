@@ -18,54 +18,54 @@
 // Output: 0
 // Explanation: In this case, no transactions are done and the max profit = 0.
 
-var maxProfitBuy= function (prices) {
-    let maxProfit =0;
+// var maxProfitBuy= function (prices) {
+//     let maxProfit =0;
 
-    let buy = prices[0];
+//     let buy = prices[0];
 
-        for(let i = 1; i < prices.length; i++) {
+//         for(let i = 1; i < prices.length; i++) {
 
-            let sell = prices[i];
-            console.log("sell",sell)
+//             let sell = prices[i];
+//             console.log("sell",sell)
 
-            if (sell > buy){
-                console.log("buy",buy);
-                maxProfit = Math.max(maxProfit, sell - buy)
-                console.log(maxProfit,sell,buy)
-            }
-            else {
-                console.log("buy",buy);
-                buy = sell;
-                console.log("afterbuy",buy);
-            }
+//             if (sell > buy){
+//                 console.log("buy",buy);
+//                 maxProfit = Math.max(maxProfit, sell - buy)
+//                 console.log(maxProfit,sell,buy)
+//             }
+//             else {
+//                 console.log("buy",buy);
+//                 buy = sell;
+//                 console.log("afterbuy",buy);
+//             }
 
-        }
+//         }
     
-    return maxProfit;
-}
-
-prices = [6,8,5,9,7,4]; //
-console.log(maxProfitBuy(prices));
-
-// function maxProfit(prices) {
-//   let max = 0;
-//      let buy = prices[0];
-//   for (let i = 0; i < prices.length; i++) {
-//     for (let j = i + 1; j < prices.length; j++) {
-//       const profit = prices[j] - prices[i];
-//       console.log("i,j",i,j);
-//       console.log("profit",profit)
-//       if (profit > max) {
-
-//         max = profit;
-//         console.log("MaxProfir",maxProfit);
-//       }
-//     }
-//   }
-//   return maxProfit;
+//     return maxProfit;
 // }
 
-// prices=[7,1,5,3,6,4]
-// console.log(maxProfit(prices));
+// prices = [6,8,5,9,7,4]; //
+// console.log(maxProfitBuy(prices));
+
+function maxProfit(prices) {
+  let max = 0;
+     let buy = prices[0];
+  for (let i = 0; i < prices.length; i++) {
+    for (let j = i + 1; j < prices.length; j++) {
+      const profit = prices[j] - prices[i];
+      console.log("i,j",i,j);
+      console.log("profit",profit)
+      if (profit > max) {
+
+        max = profit;
+        console.log("MaxProfir",maxProfit);
+      }
+    }
+  }
+  return max;
+}
+
+prices=[7,1,5,3,6,4]
+console.log(maxProfit(prices));
 
 //time:O(n^2)
