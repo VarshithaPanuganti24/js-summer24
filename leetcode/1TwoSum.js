@@ -82,7 +82,7 @@ function twoSum(nums, target) {
     console.log("complement",complement);
 
     if (map.has(complement)) {
-      //console.log("Map",map);
+      console.log("Map",map);
       return [map.get(complement), i];
       
     }
