@@ -8,8 +8,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
-const List = () => {
-  type RowsData = {
+type RowsData = {
     id: number;
     product: string;
     img: string;
@@ -19,6 +18,9 @@ const List = () => {
     method: string;
     status: string;
   }[];
+
+const List = () => {
+  
   const rows: RowsData = [
     {
       id: 1143155,
