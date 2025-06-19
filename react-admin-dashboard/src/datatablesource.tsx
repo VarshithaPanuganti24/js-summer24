@@ -1,12 +1,12 @@
 import type { GridColDef } from "@mui/x-data-grid";
-
+import React from "react";
 export const userColumns: GridColDef[] = [
-  { field: "id", headerName: "ID", width: 70, },
+  { field: "id", headerName: "ID", width: 70 },
   {
     field: "user",
     headerName: "User",
     width: 230,
-    
+
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
@@ -20,20 +20,18 @@ export const userColumns: GridColDef[] = [
     field: "email",
     headerName: "Email",
     width: 230,
-    
   },
 
   {
     field: "age",
     headerName: "Age",
     width: 100,
-    
   },
   {
     field: "status",
     headerName: "Status",
     width: 160,
-    
+
     renderCell: (params) => {
       return (
         <div className={`cellWithStatus ${params.row.status}`}>
@@ -45,16 +43,16 @@ export const userColumns: GridColDef[] = [
 ];
 
 //temporary data
-export interface UserRowsProps{
+export interface UserRowsProps {
   id: number;
-    username: string;
-    img: string;
-    status: string;
-    email: string;
-    age: number;
+  username: string;
+  img: string;
+  status: string;
+  email: string;
+  age: number;
 }
 
-export const userRows:UserRowsProps[] = [
+export const userRows: UserRowsProps[] = [
   {
     id: 1,
     username: "Snow",

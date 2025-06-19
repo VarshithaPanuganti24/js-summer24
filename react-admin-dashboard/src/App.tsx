@@ -8,7 +8,7 @@ import { productInputs,userInputs } from "./formsource";
 import "./style/dark.scss"
 import { useContext,  } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
-
+import React from 'react';
 function App() {
 
   const {darkMode} = useContext(DarkModeContext)

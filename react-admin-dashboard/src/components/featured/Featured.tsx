@@ -1,4 +1,4 @@
-//import React from "react";
+import React from "react";
 import "./featured.scss";
 import MoreVertOutlinedIcon from "@mui/icons-material/MoreVertOutlined";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
