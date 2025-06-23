@@ -35,6 +35,15 @@ function reverseList(head){
     return prev;
     
 }
+
+let arr = [1,2,3,4,5]
+let linkedList = arrayToLinkedList(arr);
+console.log("linkedList",linkedList);
+let reversed = reverseList(linkedList);
+console.log("ReversedList",reversed);
+// let result = linkedListToArray(reversed);
+// console.log(result);
+
 //space :o(1)
 
 // function reverseListWithStack(head) {
@@ -69,10 +78,3 @@ function reverseList(head){
 
 //space o(n)
 
-let arr = [1,2,3,4,5]
-let linkedList = arrayToLinkedList(arr);
-console.log("linkedList",linkedList);
-let reversed = reverseList(linkedList);
-console.log("ReversedList",reversed);
-let result = linkedListToArray(reversed);
-console.log(result);

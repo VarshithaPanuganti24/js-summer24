@@ -27,7 +27,7 @@ function findMin(nums) {
             left = mid + 1;
             console.log("left",left);
         }else {
-            right =mid;
+            right = mid;
             console.log("right",right);
         }
     }

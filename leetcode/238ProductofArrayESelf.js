@@ -1,5 +1,5 @@
 function productExceptSelf(nums){
-    const answer = new Array(nums).fill(1);
+    const answer = new Array(nums.length).fill(1);
     
 
     let left = 1 ;
